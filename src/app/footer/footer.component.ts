@@ -9,8 +9,6 @@ import {faDiscord, faGithub, faPaypal} from "@fortawesome/free-brands-svg-icons"
 export class FooterComponent implements OnInit {
 
   public faDiscord = faDiscord;
-  public faGithub = faGithub;
-  public faPaypal = faPaypal;
 
   ngOnInit() {
   }

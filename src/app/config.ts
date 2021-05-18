@@ -1,7 +1,7 @@
-export const discordClientId = '834108043687231570';
-export const githubClientId = '16645067d609075c61e4';
-export const googleClientId = '444774972531-atkv3k11o8satjic5m88ldv16beri3rf.apps.googleusercontent.com';
-export const apiBaseUrl = 'https://chia-dashboard-api.foxypool.io/api';
+export const discordClientId = '';
+export const githubClientId = '';
+export const googleClientId = '';
+export const apiBaseUrl = 'https://eu.chiadashboard.com/api';
 export const enablePeriodicUpdates = true;
 
 // DEV
