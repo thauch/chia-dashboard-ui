@@ -1,6 +1,6 @@
-export const discordClientId = '';
-export const githubClientId = '';
-export const googleClientId = '';
+export const discordClientId = '844447585553219584';
+export const githubClientId = 'd95a81a44733ab87cf1c';
+export const googleClientId = '414414818697-5neg9btq2ssqdlp3m7l9aitqt2vl6sq4.apps.googleusercontent.com';
 export const apiBaseUrl = 'https://eu.chiadashboard.com/api';
 export const enablePeriodicUpdates = true;
 
