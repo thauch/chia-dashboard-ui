@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {faDiscord, faGithub, faPaypal} from "@fortawesome/free-brands-svg-icons";
+import {faDiscord, faTwitter, faBtc} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: 'app-footer',
@@ -9,6 +9,8 @@ import {faDiscord, faGithub, faPaypal} from "@fortawesome/free-brands-svg-icons"
 export class FooterComponent implements OnInit {
 
   public faDiscord = faDiscord;
+  public faTwitter = faTwitter;
+  public faBtc = faBtc;
 
   ngOnInit() {
   }
