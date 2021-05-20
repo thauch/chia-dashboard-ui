@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-xl navbar-dark sticky-navbar">
   <a class="navbar-brand">
-    <img src="assets/icon.png" width="34" height="34" alt="" style="border-radius: 10%">
-    <span style="font-weight: 300; font-size: 1.1em;margin-left: 8px;vertical-align: top">Chia-Dashboard</span>
+    <img src="assets/chia_logo.svg" width="34" height="34" alt="" style="border-radius: 10%">
+    <span style="font-weight: 300; font-size: 1.1em;margin-left: 8px;vertical-align: top">EU.chiadashboard.com</span>
   </a>
   <button class="navbar-toggler" type="button" (click)="toggleMenuCollapse()">
     <span class="navbar-toggler-icon"></span>
@@ -10,14 +10,14 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngIf="user">
         <a class="nav-link">
-          <button type="button" class="btn btn-outline-primary" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onTabButtonClick()">
+          <button type="button" class="btn btn-outline-success" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onTabButtonClick()">
             Dashboard
           </button>
         </a>
       </li>
       <li class="nav-item" *ngIf="user">
         <a class="nav-link">
-          <button type="button" class="btn btn-outline-primary" routerLink="/satellites" routerLinkActive="active" (click)="onTabButtonClick()">
+          <button type="button" class="btn btn-outline-success" routerLink="/satellites" routerLinkActive="active" (click)="onTabButtonClick()">
             Satellites
           </button>
         </a>
