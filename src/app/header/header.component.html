@@ -51,8 +51,9 @@
     <div *ngIf="user && user.avatarUrl">
       <img src="{{user.avatarUrl}}" width="30" height="30" style="border-radius: 100%">
     </div>
-    
+    //-->
     <div *ngIf="isAuthenticated" style="padding-right: 8px; padding-top: 8px; padding-bottom: 8px">
+     <!--
       <button type="button" class="btn btn-success" style="margin-left: 10px" (click)="openAddSatelliteModal()">
         + Add
       </button>
