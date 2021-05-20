@@ -10,6 +10,7 @@ export class FooterComponent implements OnInit {
 
   public faDiscord = faDiscord;
   public faTwitter = faTwitter;
+  public faBtc = faBtc;
 
   ngOnInit() {
   }
