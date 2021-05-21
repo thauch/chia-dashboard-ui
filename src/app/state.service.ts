@@ -41,7 +41,6 @@ export class StateService {
     if (!this.selectedCurrency) {
       this.setSelectedCurrency('usd');
     }
-    this.init();
   }
 
   async init() {
@@ -95,6 +94,7 @@ export class StateService {
       this.updateRates(),
     ]);
   }
+
   async initSharedState() {
     await Promise.all([
       this.updateSharedSatellites(),
@@ -112,6 +112,7 @@ export class StateService {
       this.updateRatesInterval = null;
     }
     this.isInitialized = false;
+    this.isInitializing = false;
   }
 
   onNewLatestSatelliteVersion(latestSatelliteVersion) {
@@ -165,7 +166,7 @@ export class StateService {
     }
     this.stateUpdated.next();
   }
-  
+
   async updateRates() {
     const { rates, currencies } = await this.apiService.getRates();
     this.rates = rates;
