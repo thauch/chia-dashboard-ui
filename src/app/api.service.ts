@@ -15,7 +15,7 @@ export class ApiService {
   public isAuthenticated: boolean = !!this.accessToken && !!this.refreshToken && !this.shareKey;
 
   private get accessToken() {
-   return this.shareKey || this.localStorageService.getItem('auth/accessToken');
+    return this.shareKey || this.localStorageService.getItem('auth/accessToken');
   }
 
   private get refreshToken() {
@@ -61,7 +61,6 @@ export class ApiService {
           return Promise.reject(error);
         }
         if (this.shareKey) {
-          
           await this.router.navigate(['/login']);
 
           return Promise.reject(error);
@@ -103,6 +102,7 @@ export class ApiService {
       }
     }, 5 * 1435);
   }
+
   setShareKey(shareKey) {
     this.shareKey = shareKey;
     this.isAuthenticated = shareKey ? false : (!!this.accessToken && !!this.refreshToken);
@@ -127,6 +127,7 @@ export class ApiService {
   async updateSatellite({ id, data }) {
     return this.request({ method: 'patch', url: `satellite/${id}`, data });
   }
+
   async updateUser({ data }) {
     return this.request({ method: 'patch', url: 'me', data });
   }
@@ -134,6 +135,7 @@ export class ApiService {
   async getSharedSatellites() {
     return this.request({ url: 'shared/satellites' });
   }
+
   async getRates() {
     // @ts-ignore
     return this.request({ url: 'rates', noToken: true });
