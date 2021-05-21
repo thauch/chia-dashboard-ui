@@ -21,6 +21,7 @@
       <div class="card-font-size">Connected to</div>
       <div class="card-font-size font-weight-bold">{{farmerIP}}</div>
     </div>
+    
   </div>
   <div class="card-footer">
     <small class="text-muted">
@@ -29,6 +30,7 @@
             [attr.orange]="lastUpdatedState === 1 ? true : null"
             [attr.red]="lastUpdatedState === 2 ? true : null">
       </span>
-      Last updated {{lastUpdatedBefore}}</small>
+      Last updated {{lastUpdatedBefore}}<BR>
+        Last Farmer Response: {{farmerLastMessage}} s (Experimental)</small>
   </div>
 </div>
