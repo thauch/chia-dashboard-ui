@@ -37,20 +37,8 @@ export class LoginComponent implements OnInit {
     await this.router.navigate(['/']);
   }
 
-  get isDiscordEnabled() {
-    return !!discordClientId;
-  }
-
-  get isGithubEnabled() {
-    return !!githubClientId;
-  }
-
-  get isGoogleEnabled() {
-    return !!googleClientId;
-  }
-
   get discordAuthUrl() {
-    return `https://discord.com/api/oauth2/authorize?client_id=${discordClientId}&redirect_uri=${this.getRedirectUri('discord')}&response_type=code&scope=${this.discordScopes}&prompt=none`;
+    return `https://discord.com/api/oauth2/authorize?client_id=${discordClientId}&redirect_uri=${this.getRedirectUri('discord')}&response_type=code&scope=identify email&prompt=none`;
   }
 
   get githubAuthUrl() {
