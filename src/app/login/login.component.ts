@@ -52,9 +52,6 @@ export class LoginComponent implements OnInit {
   getRedirectUri(provider) {
     return `${this.window.location.protocol}//${this.window.location.host}/oauth/callback/${provider}`;
   }
-
-
-
-    return scopes.join(' ');
+    
   }
 }
