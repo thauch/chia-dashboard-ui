@@ -43,6 +43,10 @@ export class HeaderComponent {
   get isAuthenticated() {
     return this.apiService.isAuthenticated;
   }
+  
+  get hasShareKey() {
+    return !!this.apiService.shareKey;
+  }
 
   async logout() {
     await this.stateService.logout();
