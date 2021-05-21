@@ -56,6 +56,10 @@ export class HarvesterComponent implements OnInit {
   get capacityInGib() {
     return new BigNumber(this.harvester.totalCapacityInGib);
   }
+   get farmerIP() {
+     return this.harvester.ip);
+   }
+
 
   get lastUpdatedBefore() {
     return moment(this.harvester.lastUpdate).fromNow();
