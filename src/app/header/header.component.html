@@ -63,9 +63,17 @@
           <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
         </select>
       </div>
+      <button type="button" class="btn btn-secondary" routerLink="/profile" routerLinkActive="active">
+        Profile
+      </button>
       <button type="button" class="btn btn-secondary" style="margin-left: 10px" (click)="logout()">
         Logout
       </button>
+    </div>
+    <div class="currency-select-wrapper header-row-item" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0">
+      <select class="custom-select currency-select" [ngModel]="selectedCurrency" (ngModelChange)="setSelectedCurrency($event)">
+        <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
+      </select>
     </div>
     <div *ngIf="!isAuthenticated" style="padding-right: 8px; padding-top: 8px; padding-bottom: 8px">
       <button type="button" class="btn btn-dark" routerLink="/login" routerLinkActive="active" (click)="isMenuCollapsed = true">
