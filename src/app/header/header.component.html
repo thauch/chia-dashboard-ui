@@ -58,7 +58,7 @@
         + Add
       </button>
     // -->
-      <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0"></div>
+      <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0">
         <select class="custom-select currency-select" [ngModel]="selectedCurrency" (ngModelChange)="setSelectedCurrency($event)">
           <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
         </select>
