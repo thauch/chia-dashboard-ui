@@ -3,9 +3,14 @@
     <h5>Plotter ({{satelliteName}})</h5>
   </div>
   <div class="card-body card-body-with-title" [class.plotter-card]="runningJobsCount > 0">
-    <h5 class="card-title">
-      Status: <span [class]="colorClassForStatus">{{status}}</span>
-    </h5>
+    <div class="card-title d-flex justify-content-between">
+      <span class="h5">
+        Status: <span [class]="colorClassForStatus">{{status}}</span>
+      </span>
+      <span class="h6 text-muted align-self-center" *ngIf="cpu !== undefined">
+        <span ngbTooltip="CPU">C: {{cpu}}</span> / <span ngbTooltip="RAM">R: {{ram}}</span>
+      </span>
+    </div>
     <h6 class="card-subtitle mb-2 text-muted d-flex justify-content-between">
       <span>
         Running: {{runningJobsCount}}<span *ngIf="pendingJobsCount > 0"> / Pending: {{pendingJobsCount}}</span>
@@ -31,6 +36,24 @@
             <td *ngIf="job.phase === undefined">-</td>
             <td>{{getJobRuntime(job)}}</td>
             <td>{{getJobProgress(job)}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-sm table-dark plot-job-table">
+        <thead>
+          <tr>
+            <th scope="col">Drive</th>
+            <th scope="col">Used</th>
+            <th scope="col">Total</th>
+            <th scope="col">%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let drive of drives">
+            <td>{{drive.letter}}</td>
+            <td>{{drive.used}}</td>
+            <td>{{drive.total}}</td>
+            <td>{{drive.percent}}</td>
           </tr>
         </tbody>
       </table>
