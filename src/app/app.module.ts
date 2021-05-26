@@ -35,7 +35,7 @@ import { EditableModule } from '@ngneat/edit-in-place';
 import {ClipboardModule} from 'ngx-clipboard';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.component';
-import { OrderByPipe } from './order-by-pipe';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -58,8 +58,7 @@ import { OrderByPipe } from './order-by-pipe';
     ConfirmationModalComponent,
     PlotterComponent,
     ProfileComponent,
-    SharedDashboardComponent,
-    OrderByPipe
+    SharedDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +82,7 @@ import { OrderByPipe } from './order-by-pipe';
     EditableModule,
     ReactiveFormsModule,
     ClipboardModule,
+    OrderModule
   ],
   providers: [
     WINDOW_PROVIDERS,
