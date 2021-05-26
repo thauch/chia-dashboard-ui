@@ -36,6 +36,7 @@
     "fuse.js": "^6.4.1",
     "humanize-duration": "^3.23.1",
     "moment": "^2.27.0",
+    "nginx": "^1.0.3",
     "ngx-clipboard": "^14.0.1",
     "ngx-echarts": "^6.0.1",
     "ngx-scrolltop": "^2.0.0",

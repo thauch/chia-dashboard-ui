@@ -1,7 +1,7 @@
-export const discordClientId = '844447585553219584';
-export const githubClientId = 'd95a81a44733ab87cf1c';
-export const googleClientId = '414414818697-5neg9btq2ssqdlp3m7l9aitqt2vl6sq4.apps.googleusercontent.com';
-export const apiBaseUrl = 'https://eu.chiadashboard.com/api';
+export const discordClientId = '846271886492565504';
+export const githubClientId = 'e6fec0a8b164e83c34e4';
+export const googleClientId = '249551392486-gofa7sgn1sec147avqua59o8mt9c54sk.apps.googleusercontent.com';
+export const apiBaseUrl = 'https://dev.chiadashboard.com/api';
 export const enablePeriodicUpdates = true;
 
 // DEV
