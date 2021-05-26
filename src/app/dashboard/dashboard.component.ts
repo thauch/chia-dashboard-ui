@@ -70,4 +70,5 @@ export class DashboardComponent implements OnInit {
   get plotters() {
     return this.stateService.plotters;
   }
+
 }
