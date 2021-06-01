@@ -13,6 +13,7 @@ import * as semverLt from 'semver/functions/lt';
 export class StateService {
   public user: any;
   public satellites: any[] = [];
+  public globalStats: any;
   public stateUpdated = new Subject();
   public bestBlockchainState: any = null;
   private updateSatellitesInterval: any;
@@ -147,6 +148,17 @@ export class StateService {
     try {
       this.satellites = await this.apiService.getSatellites();
       this.updateFromSatellites();
+    } catch (err) {
+      this.toastService.showErrorToast(`Failed to retrieve the satellites: ${err.message}`);
+
+      throw err;
+    }
+    this.stateUpdated.next();
+  }
+
+  async getGlobalStats() {
+    try {
+      this.globalStats = await this.apiService.getGlobalStats();
     } catch (err) {
       this.toastService.showErrorToast(`Failed to retrieve the satellites: ${err.message}`);
 
