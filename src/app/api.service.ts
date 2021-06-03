@@ -116,10 +116,6 @@ export class ApiService {
     return this.request({ url: 'satellites' });
   }
 
-  async getGlobalStats() {
-    return this.request({ url: 'globalstats' });
-  }
-  
   async createSatellite(name) {
     return this.request({ method: 'post', url: 'satellite', data: { name } });
   }

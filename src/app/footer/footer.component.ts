@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import {faDiscord, faTwitter, faBtc } from "@fortawesome/free-brands-svg-icons";
-import { ApiService } from '../api.service';
-import { StateService } from '../state.service';
+import {faDiscord, faTwitter, faBtc} from "@fortawesome/free-brands-svg-icons";
 
 @Component({
   selector: 'app-footer',
@@ -11,23 +8,11 @@ import { StateService } from '../state.service';
 })
 export class FooterComponent implements OnInit {
 
-   public faDiscord = faDiscord;
-   public faTwitter = faTwitter;
-   public faBtc = faBtc;
+  public faDiscord = faDiscord;
+  public faTwitter = faTwitter;
+  public faBtc = faBtc;
 
-    constructor(
-    private stateService: StateService,
-    private apiService: ApiService,
-    private router: Router,
-  ) {}
-
-  async ngOnInit() {
-    await this.stateService.init();
-    await this.stateService.getGlobalStats();
-  }
-
-  get globalStats() {
-    return this.stateService.globalStats;
+  ngOnInit() {
   }
 
 }
