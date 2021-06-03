@@ -14,6 +14,7 @@ export class StateService {
   public user: any;
   public satellites: any[] = [];
   public stateUpdated = new Subject();
+  public globalStats: any;
   public bestBlockchainState: any = null;
   private updateSatellitesInterval: any;
   private updateRatesInterval: any;
@@ -154,7 +155,18 @@ export class StateService {
     }
     this.stateUpdated.next();
   }
+  
+  async getGlobalStats() {
+    try {
+      this.globalStats = await this.apiService.getGlobalStats();
+    } catch (err) {
+      this.toastService.showErrorToast(`Failed to retrieve the satellites: ${err.message}`);
 
+      throw err;
+    }
+    this.stateUpdated.next();
+  }
+  
   async updateSharedSatellites() {
     try {
       this.satellites = await this.apiService.getSharedSatellites();
