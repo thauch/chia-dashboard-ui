@@ -48,6 +48,10 @@ export class HeaderComponent {
     return !!this.apiService.shareKey;
   }
 
+  get hasShareKey() {
+    return !!this.apiService.shareKey;
+  }
+
   async logout() {
     await this.stateService.logout();
   }
