@@ -5,7 +5,3 @@ export const apiBaseUrl = 'https://dev.chiadashboard.com/api';
 
 export const enablePeriodicUpdates = true;
 export const requestDiscordGuildPermission = true;
-
-// DEV
-// export const githubClientId = 'f5cf9bfb6113a5fee63c';
-// export const apiBaseUrl = 'http://localhost:5000/api';
