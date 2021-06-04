@@ -12,8 +12,8 @@ import { StateService } from '../state.service';
 export class FooterComponent implements OnInit {
 
   public faDiscord = faDiscord;
-  public faGithub = faGithub;
-  public faPaypal = faPaypal;
+  public faTwitter = faTwitter;
+  public faBtc = faBtc;
 
   constructor(
     private stateService: StateService,
