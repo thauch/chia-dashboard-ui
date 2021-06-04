@@ -101,7 +101,9 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "cname": "dashboard.chia.foxypool.io"
+            "cname": "us.chiadashboard.com",
+            "name": "Travis Hauch",
+            "email": "travishauch@gmail.com"
           }
         }
       }

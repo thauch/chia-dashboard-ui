@@ -58,7 +58,7 @@ import { OrderModule } from 'ngx-order-pipe';
     ConfirmationModalComponent,
     PlotterComponent,
     ProfileComponent,
-    SharedDashboardComponent
+    SharedDashboardComponent,
   ],
   imports: [
     BrowserModule,
