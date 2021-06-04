@@ -3,38 +3,21 @@ Chia-Dashboard-UI
 
 The UI powering https://dashboard.chia.foxypool.io. No support for users self-hosting, you are on your own.
 
-Installation
-======
+### Self-Hosting
 
-1) Clone this Repo
-2) Install Angualr, Yarn & Nginx
-3) Adjust configuration (OAuth, URL) in config.ts
-4) Install Dependencies
-5) Run "yarn run build"
-6) Populate the dist directory with nginx
+#### Requirements
 
-Example Nginx Configuration:
+- nodejs >= 12
+- at least one oauth provider
+- a web server or hosting service (gh-pages, cloudflare-pages, vercel, etc)
 
-server {
-        server_name eu.chiadashboard.com;
-        access_log /var/log/nginx/reverse-access.log;
-        error_log /var/log/nginx/reverse-error.log;
+#### Setup
 
-        location / {
-        index index.html index.htm;
-        root /dashboard;
-         try_files $uri $uri/ /index.html;
-		}
-		location /api {
-        proxy_pass http://127.0.0.1:5000/api;
-		}
+The following is a non-exhaustive list of things that need to be done to self-host the chia dashboard ui
 
-
-
-        server_name eu.chiadashboard.com;
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        
-    
-}
-
+- Setup nodejs
+- Adjust the [config.ts](src/app/config.ts):
+  - Set the oauth client ids you want to use, set the ones you don't want to use to a falsy value.
+  - Adjust the `apiBaseUrl` to your dashboard core url.
+- Build the ui via `yarn run build`
+- Host the result (in `dist`) on your webserver or hosting service. Depending on your choice you might need to setup a catch-all redirect to index.html at the end of your webserver config to allow the SPA to function correctly when calling urls with client side routes.
