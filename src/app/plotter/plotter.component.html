@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <h5>Plotter ({{satelliteName}})</h5>
+    <h5>Plotter ({{satelliteName}})<fa-icon [icon]="collapsedState ? faChevronDown : faChevronUp" class="float-right text-muted h6" (click)="toggleCollapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample"></fa-icon></h5>
   </div>
   <div class="card-body card-body-with-title" [class.plotter-card]="runningJobsCount > 0">
     <div class="card-title">
@@ -16,7 +16,7 @@
         <span ngbTooltip="Today">T</span>: {{completedPlotsToday}} / <span ngbTooltip="Yesterday">Y</span>: {{completedPlotsYesterday}}
       </span>
     </h6>
-    <div class="table-responsive">
+    <div #collapse="ngbCollapse" [ngbCollapse]="collapsedState" class="table-responsive">
       <table class="table table-sm table-dark plot-job-table">
         <thead>
           <tr>

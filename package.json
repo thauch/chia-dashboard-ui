@@ -38,6 +38,7 @@
     "moment": "^2.29.1",
     "ngx-clipboard": "^14.0.1",
     "ngx-echarts": "^6.0.1",
+    "ngx-order-pipe": "^2.1.1",
     "ngx-scrolltop": "^2.4.0",
     "ngx-toastr": "^13.2.1",
     "rxjs": "^6.6.7",
@@ -48,7 +49,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.10",
-    "@angular/cli": "^11.2.10",
+    "@angular/cli": "^11.2.14",
     "@angular/compiler-cli": "^11.2.11",
     "@angular/language-service": "^11.2.11",
     "@types/node": "^14.6.0",

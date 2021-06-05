@@ -47,7 +47,11 @@ export class HeaderComponent {
   get hasShareKey() {
     return !!this.apiService.shareKey;
   }
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
   async logout() {
     await this.stateService.logout();
   }

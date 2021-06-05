@@ -1,5 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
 import * as moment from 'moment';
+import {ApiService} from '../api.service';
+import {StateService} from '../state.service';
+import {ToastService} from '../toast.service';
 
 @Component({
   selector: 'app-plotter',
@@ -7,9 +11,20 @@ import * as moment from 'moment';
   styleUrls: ['./plotter.component.scss']
 })
 export class PlotterComponent implements OnInit {
+  @Input() satelliteId: any;
   @Input() plotter: any;
+  @Input() collapsed: any;
+  isCollapsed: boolean;
+  faChevronDown = faChevronDown;
+  faChevronUp = faChevronUp;
 
-  constructor() { }
+  constructor(
+    private apiService: ApiService,
+    private stateService: StateService,
+    private toastService: ToastService,
+    ) { 
+    this.isCollapsed = false;
+  }
 
   ngOnInit(): void {
   }
@@ -85,6 +100,16 @@ export class PlotterComponent implements OnInit {
   
   get ram() {
     return this.plotter.ram;
+  }
+
+  get collapsedState() {
+    return this.plotter.collapsedState;
+  }
+  
+  async toggleCollapse() {
+    const newCollapsedValue = !this.collapsedState;
+    this.plotter.collapsedState = newCollapsedValue;
+    await this.apiService.updateSatellite({ id: this.plotter.satelliteId, data: { collapsed: newCollapsedValue } });
   }
 
   get lastUpdatedBefore() {
