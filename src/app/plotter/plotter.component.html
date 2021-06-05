@@ -3,11 +3,9 @@
     <h5>Plotter ({{satelliteName}})<fa-icon [icon]="collapsedState ? faChevronDown : faChevronUp" class="float-right text-muted h6" (click)="toggleCollapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample"></fa-icon></h5>
   </div>
   <div class="card-body card-body-with-title" [class.plotter-card]="runningJobsCount > 0">
-    <div class="card-title">
-      <span class="h5">
-        Status: <span [class]="colorClassForStatus">{{status}}</span>
-      </span>
-    </div>
+    <h5 class="card-title">
+      Status: <span [class]="colorClassForStatus">{{status}}</span>
+    </h5>
     <h6 class="card-subtitle mb-2 text-muted d-flex justify-content-between">
       <span>
         Running: {{runningJobsCount}}<span *ngIf="pendingJobsCount > 0"> / Pending: {{pendingJobsCount}}</span>
@@ -36,32 +34,10 @@
           </tr>
         </tbody>
       </table>
-      <!-- <table class="table table-sm table-dark plot-job-table">
-        <thead>
-          <tr>
-            <th scope="col">Drive</th>
-            <th scope="col">Used</th>
-            <th scope="col">Total</th>
-            <th scope="col">%</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let drive of drives">
-            <td>{{drive.letter}}</td>
-            <td>{{drive.used}}</td>
-            <td>{{drive.total}}</td>
-            <td>{{drive.percent}}</td>
-          </tr>
-        </tbody>
-      </table> -->
     </div>
   </div>
   <div class="card-footer">
     <small class="text-muted">
-      <div  *ngIf="cpu !== undefined">
-        <span ngbTooltip="CPU">CPU: {{cpu}}</span> / <span ngbTooltip="RAM">RAM: {{ram}}</span>
-        <br />
-      </div>
       <span class="dot"
             [attr.green]="lastUpdatedState === 0 ? true : null"
             [attr.orange]="lastUpdatedState === 1 ? true : null"

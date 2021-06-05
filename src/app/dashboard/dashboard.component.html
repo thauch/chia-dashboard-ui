@@ -36,18 +36,18 @@
       class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
     </app-plotter>
     <app-harvester
-      *ngFor="let harvester of harvesters; trackBy: trackBy"
+      *ngFor="let harvester of harvesters | orderBy: 'satelliteName'; trackBy: trackBy"
       [harvester]="harvester"
       [bestBlockchainState]="bestBlockchainState"
       class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
     </app-harvester>
     <app-farmer
-      *ngFor="let farmer of farmers; trackBy: trackBy"
+      *ngFor="let farmer of farmers | orderBy: 'satelliteName'; trackBy: trackBy"
       [farmer]="farmer"
       class="p-1 col-12 col-sm-12 col-md-8 col-lg-8 col-xl-6 col-xxl-8">
     </app-farmer>
     <app-full-node
-      *ngFor="let fullNode of fullNodes; trackBy: trackBy"
+      *ngFor="let fullNode of fullNodes | orderBy: 'satelliteName'; trackBy: trackBy"
       [fullNode]="fullNode"
       class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
     </app-full-node>

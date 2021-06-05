@@ -82,10 +82,6 @@ export class PlotterComponent implements OnInit {
     return this.plotter.jobs;
   }
 
-  get drives() {
-    return this.plotter.drives;
-  }
-
   get completedPlotsToday() {
     return this.plotter.completedPlotsToday;
   }
