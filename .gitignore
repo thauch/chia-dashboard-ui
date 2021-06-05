@@ -46,3 +46,10 @@ testem.log
 Thumbs.db
 
 ngsw-config.json
+src/app/footer/footer.component.html
+src/app/footer/footer.component.scss
+src/app/footer/footer.component.ts
+app/header/header.component.html
+app/header/header.component.scss
+app/header/header.component.ts
+app/config.ts
