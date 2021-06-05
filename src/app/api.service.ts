@@ -132,6 +132,10 @@ export class ApiService {
     return this.request({ method: 'patch', url: `satellite/${id}`, data });
   }
 
+  async updateCollapse({ id, data }) {
+    return this.request({ method: 'patch', url: `satellite/${id}`, data });
+  }
+
   async updateUser({ data }) {
     return this.request({ method: 'patch', url: 'me', data });
   }

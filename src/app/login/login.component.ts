@@ -2,7 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 import {ApiService} from "../api.service";
 import {Router} from "@angular/router";
 import {faDiscord, faGithub, faGoogle } from "@fortawesome/free-brands-svg-icons";
-import {discordClientId, githubClientId, googleClientId, requestDiscordGuildPermission } from '../config';
+import {discordClientId, githubClientId, googleClientId, requestDiscordGuildPermission} from '../config';
 import {WINDOW} from '../window.provider';
 import { v4 as uuidv4 } from 'uuid';
 import {StateService} from '../state.service';

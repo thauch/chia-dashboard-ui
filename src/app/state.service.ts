@@ -233,6 +233,7 @@ export class StateService {
           satelliteName: satellite.name,
           satelliteId: satellite._id,
           satelliteUpdatedAt: satellite.updatedAt,
+          collapsedState: satellite.collapsed,
         });
       }
       return statsCollection;
