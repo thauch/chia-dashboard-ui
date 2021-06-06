@@ -3,6 +3,7 @@ import {getStateForLastUpdated} from '../state-util';
 import Capacity from '../capacity';
 import * as moment from 'moment';
 import BigNumber from 'bignumber.js';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-harvester',
@@ -17,11 +18,10 @@ export class HarvesterComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   get farmerConnectionsCount() {
     return this.harvester.farmerConnectionsCount !== undefined ? this.harvester.farmerConnectionsCount : this.harvester.farmerConnections.length;
   }
-
+  }
   get status() {
     if (this.lastUpdatedState !== 0) {
       return 'Unknown';
@@ -60,6 +60,17 @@ export class HarvesterComponent implements OnInit {
   get capacityInGib() {
     return new BigNumber(this.harvester.totalCapacityInGib);
   }
+   get farmerIP() {
+     return this.harvester.farmerConnections[0].ip;
+   }
+
+   get farmerLastMessage() {
+     var now = Math.floor(Date.now() / 1000)
+     var delay  =  now - this.harvester.farmerConnections[0].lastMessageTimestamp;
+    return delay.toFixed(2);
+   }
+
+
 
   get lastUpdatedBefore() {
     return moment(this.harvester.lastUpdate).fromNow();
