@@ -34,10 +34,36 @@
           </tr>
         </tbody>
       </table>
+      <table *ngIf="drives !== undefined" class="table table-sm table-dark plot-drive-table">
+        <thead>
+          <tr>
+            <th scope="col">Drive</th>
+            <th scope="col">Free</th>
+            <!-- <th scope="col">Used</th>
+            <th scope="col">Total</th> -->
+            <th scope="col">% Full</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let drive of drives">
+            <td *ngIf="drive.letter.length >= 8"><span ngbTooltip={{drive.letter}}>{{shortenDriveName(drive.letter)}}</span></td>
+            <td *ngIf="drive.letter.length < 8">{{shortenDriveName(drive.letter)}}</td>
+            <td>{{driveFreeSpace(drive.used, drive.total)}}TiB</td>
+            <!-- <td>{{formatBytes(drive.used)}}TiB</td>
+            <td>{{formatBytes(drive.total)}}TiB</td> -->
+            <td><span [class]="driveFullIndicator(drive.percent)">
+              {{percentRound(drive.percent)}}%</span></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
   <div class="card-footer">
     <small class="text-muted">
+      <div  *ngIf="cpu !== undefined">
+        <span ngbTooltip="CPU">CPU: {{cpu}}</span> / <span ngbTooltip="RAM">RAM: {{ram}}</span>
+        <br />
+      </div>
       <span class="dot"
             [attr.green]="lastUpdatedState === 0 ? true : null"
             [attr.orange]="lastUpdatedState === 1 ? true : null"
