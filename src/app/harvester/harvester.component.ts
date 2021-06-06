@@ -69,9 +69,6 @@ export class HarvesterComponent implements OnInit {
   get lastUpdatedState() {
     return getStateForLastUpdated(this.harvester.lastUpdate);
   }
- get farmerIP() {
-     return this.harvester.farmerConnections[0].ip;
-   }
   get estimatedTimeToWinInHours() {
     if (!this.bestBlockchainState) {
       return 'N/A';
