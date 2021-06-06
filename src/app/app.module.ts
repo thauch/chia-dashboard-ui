@@ -36,6 +36,7 @@ import {ClipboardModule} from 'ngx-clipboard';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { GlobalStatsComponent } from './global-stats/global-stats.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +60,7 @@ import { OrderModule } from 'ngx-order-pipe';
     PlotterComponent,
     ProfileComponent,
     SharedDashboardComponent,
+    GlobalStatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,7 @@ import { OrderModule } from 'ngx-order-pipe';
     EditableModule,
     ReactiveFormsModule,
     ClipboardModule,
-    OrderModule
+    OrderModule,
   ],
   providers: [
     WINDOW_PROVIDERS,
