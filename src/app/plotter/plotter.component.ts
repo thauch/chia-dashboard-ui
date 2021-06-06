@@ -82,6 +82,10 @@ export class PlotterComponent implements OnInit {
     return this.plotter.jobs;
   }
 
+  get drives() {
+    return this.plotter.drives;
+  }
+
   get completedPlotsToday() {
     return this.plotter.completedPlotsToday;
   }
@@ -130,6 +134,35 @@ export class PlotterComponent implements OnInit {
     }
 
     return `${(job.progress * 100).toFixed(2)}%`;
+  }
+
+  shortenDriveName(name) {
+    if (name.length >= 8) {
+    return name.substring(0,7)+'..';
+    }
+    return name;
+  }
+  
+  driveFreeSpace(used, total) {
+    return this.formatBytes(total - used);
+  }
+
+  formatBytes(bytes) {
+    return (bytes / Math.pow(1024, 4)).toFixed(2);
+  }
+
+  percentRound(percent) {
+    return Math.round(percent);
+  }
+
+  driveFullIndicator(percent) {
+    if (this.percentRound(percent) >= 98) {
+      return 'color-red';
+    }
+    if (this.percentRound(percent) >= 90) {
+      return 'color-orange';
+    }
+    return 'color-green';
   }
 
   get lastUpdatedState() {
