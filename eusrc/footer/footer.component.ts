@@ -31,4 +31,9 @@ export class FooterComponent implements OnInit {
   get globalStats() {
     return this.stateService.globalStats;
   }
+  
+   get chiaStats() {
+    return this.stateService.chiaStats;
+  }
+  
 }

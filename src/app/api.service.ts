@@ -119,7 +119,9 @@ export class ApiService {
   async getGlobalStats() {
     return this.request({ url: 'globalstats' });
   }
-  
+  async getChiaStats() {
+    return this.request({ url: 'stats' });
+  }
   async createSatellite(name) {
     return this.request({ method: 'post', url: 'satellite', data: { name } });
   }
