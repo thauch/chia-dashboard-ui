@@ -1,3 +1,4 @@
+import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full', data: { titleSuffix: 'Login' } },
   { path: 'satellites', component: SatelliteListComponent, pathMatch: 'full', data: { titleSuffix: 'Satellites' } },
+  { path: 'hpool', component: HPoolDashboardComponent, pathMatch: 'full', data: { titleSuffix: 'HPool' } },
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', data: { titleSuffix: 'Profile' } },
   { path: 'shared/:shareKey', component: SharedDashboardComponent, pathMatch: 'full' },
   { path: 'oauth', loadChildren: () => import('./oauth/oauth.module').then(m => m.OAuthModule) },

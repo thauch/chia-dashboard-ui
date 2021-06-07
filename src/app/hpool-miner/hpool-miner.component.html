@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header">
+    <h5>HPool Miner ({{satelliteName}})</h5>
+  </div>
+  <div class="card-body card-body-with-title">
+    <h5 class="card-title">
+      Status: <span [class]="colorClassForSyncStatus">{{status}}</span>
+    </h5>
+    <!-- <h6 class="card-subtitle mb-2 text-muted">
+      Estimated Plots: {{plotCount}}
+    </h6> -->
+    <div class="d-flex justify-content-between">
+      <div class="card-font-size" ngbTooltip="Directory Count">Plots</div>
+      <div class="card-font-size font-weight-bold">{{plotCount}}</div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="card-font-size" ngbTooltip="HPool Reporting">Capacity</div>
+      <div class="card-font-size font-weight-bold">{{capacity}}</div>
+    </div>
+    <div class="d-flex justify-content-between">
+      <div class="card-font-size" ngbTooltip="HPool Reporting">Scan Time</div>
+      <div class="card-font-size font-weight-bold "><span [class]="scanStatus">{{scanTime}} ms</span></div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">
+      <span class="dot"
+            [attr.green]="lastUpdatedState === 0 ? true : null"
+            [attr.orange]="lastUpdatedState === 1 ? true : null"
+            [attr.red]="lastUpdatedState === 2 ? true : null">
+      </span>
+      Last updated {{lastUpdatedBefore}}</small>
+  </div>
+</div>

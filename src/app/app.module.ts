@@ -36,6 +36,8 @@ import {ClipboardModule} from 'ngx-clipboard';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
+import { HPoolMinerComponent } from './hpool-miner/hpool-miner.component';
 
 @NgModule({
   declarations: [
@@ -59,6 +61,8 @@ import { OrderModule } from 'ngx-order-pipe';
     PlotterComponent,
     ProfileComponent,
     SharedDashboardComponent,
+    HPoolDashboardComponent,
+    HPoolMinerComponent,
   ],
   imports: [
     BrowserModule,

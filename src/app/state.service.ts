@@ -28,6 +28,7 @@ export class StateService {
   public harvesters = [];
   public farmers = [];
   public plotters = [];
+  public hpoolMiners = [];
 
   private isInitialized = false;
   private isInitializing = false;
@@ -219,6 +220,7 @@ export class StateService {
     this.updateStatsFromSatellites('harvesters', 'harvester');
     this.updateStatsFromSatellites('farmers', 'farmer');
     this.updateStatsFromSatellites('plotters', 'plotter');
+    this.updateStatsFromSatellites('hpoolMiners', 'hpoolMiner');
   }
 
   updateStatsFromSatellites(localStatsName, statsKey) {
