@@ -38,6 +38,7 @@ import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.co
 import { OrderModule } from 'ngx-order-pipe';
 import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
 import { HPoolMinerComponent } from './hpool-miner/hpool-miner.component';
+import { PlottersChrisComponent } from './plotters-chris/plotters-chris.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +64,7 @@ import { HPoolMinerComponent } from './hpool-miner/hpool-miner.component';
     SharedDashboardComponent,
     HPoolDashboardComponent,
     HPoolMinerComponent,
+    PlottersChrisComponent,
   ],
   imports: [
     BrowserModule,
