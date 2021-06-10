@@ -3,6 +3,7 @@ import {getStateForLastUpdated} from '../state-util';
 import Capacity from '../capacity';
 import * as moment from 'moment';
 import BigNumber from 'bignumber.js';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-harvester',
@@ -68,7 +69,6 @@ export class HarvesterComponent implements OnInit {
   get lastUpdatedState() {
     return getStateForLastUpdated(this.harvester.lastUpdate);
   }
-
   get estimatedTimeToWinInHours() {
     if (!this.bestBlockchainState) {
       return 'N/A';

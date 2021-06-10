@@ -37,6 +37,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { GlobalStatsComponent } from './global-stats/global-stats.component';
+import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { GlobalStatsComponent } from './global-stats/global-stats.component';
     ProfileComponent,
     SharedDashboardComponent,
     GlobalStatsComponent,
+	ChiaStatsComponent,
   ],
   imports: [
     BrowserModule,

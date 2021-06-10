@@ -14,6 +14,7 @@ export class StateService {
   public user: any;
   public satellites: any[] = [];
   public globalStats: any;
+  public chiaStats: any;
   public stateUpdated = new Subject();
   public bestBlockchainState: any = null;
   private updateSatellitesInterval: any;
@@ -160,13 +161,23 @@ export class StateService {
     try {
       this.globalStats = await this.apiService.getGlobalStats();
     } catch (err) {
-      this.toastService.showErrorToast(`Failed to retrieve the satellites: ${err.message}`);
+      this.toastService.showErrorToast(`Failed to retrieve the Dashboard Statistics: ${err.message}`);
 
       throw err;
     }
     this.stateUpdated.next();
   }
 
+  async getChiaStats() {
+    try {
+      this.chiaStats = await this.apiService.getChiaStats();
+    } catch (err) {
+      this.toastService.showErrorToast(`Failed to retrieve the node Statistics: ${err.message}`);
+
+      throw err;
+    }
+    this.stateUpdated.next();
+  }
   async updateSharedSatellites() {
     try {
       this.satellites = await this.apiService.getSharedSatellites();
