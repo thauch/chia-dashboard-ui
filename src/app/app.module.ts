@@ -38,6 +38,8 @@ import { OrderModule } from 'ngx-order-pipe';
 import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
 import { HPoolMinerComponent } from './hpool-miner/hpool-miner.component';
 import { PlotterDrivesComponent } from './plotter-drives/plotter-drives.component';
+import { GlobalStatsComponent } from './global-stats/global-stats.component';
+import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
 
 @NgModule({
   declarations: [
@@ -64,6 +66,8 @@ import { PlotterDrivesComponent } from './plotter-drives/plotter-drives.componen
     HPoolDashboardComponent,
     HPoolMinerComponent,
     PlotterDrivesComponent,
+    GlobalStatsComponent,
+	ChiaStatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,7 +91,7 @@ import { PlotterDrivesComponent } from './plotter-drives/plotter-drives.componen
     EditableModule,
     ReactiveFormsModule,
     ClipboardModule,
-    OrderModule
+    OrderModule,
   ],
   providers: [
     WINDOW_PROVIDERS,
