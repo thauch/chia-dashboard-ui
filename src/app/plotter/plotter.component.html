@@ -34,10 +34,10 @@
           </tr>
         </tbody>
       </table>
-      <table *ngIf="drives !== undefined" class="table table-sm table-dark plot-drive-table">
+      <table *ngIf="tempDrives !== undefined" class="table table-sm table-dark plot-drive-table">
         <thead>
           <tr>
-            <th scope="col">Drive</th>
+            <th scope="col">Temp</th>
             <th scope="col">Free</th>
             <!-- <th scope="col">Used</th>
             <th scope="col">Total</th> -->
@@ -45,7 +45,29 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let drive of drives">
+          <tr *ngFor="let drive of tempDrives">
+            <td *ngIf="drive.letter.length >= 8"><span ngbTooltip={{drive.letter}}>{{shortenDriveName(drive.letter)}}</span></td>
+            <td *ngIf="drive.letter.length < 8">{{shortenDriveName(drive.letter)}}</td>
+            <td>{{driveFreeSpace(drive.used, drive.total)}}TiB</td>
+            <!-- <td>{{formatBytes(drive.used)}}TiB</td>
+            <td>{{formatBytes(drive.total)}}TiB</td> -->
+            <td><span [class]="driveFullIndicator(drive.percent)">
+              {{percentRound(drive.percent)}}%</span></td>
+          </tr>
+        </tbody>
+      </table>
+      <table *ngIf="destDrives !== undefined" class="table table-sm table-dark plot-drive-table">
+        <thead>
+          <tr>
+            <th scope="col">Dest</th>
+            <th scope="col">Free</th>
+            <!-- <th scope="col">Used</th>
+            <th scope="col">Total</th> -->
+            <th scope="col">% Full</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let drive of destDrives">
             <td *ngIf="drive.letter.length >= 8"><span ngbTooltip={{drive.letter}}>{{shortenDriveName(drive.letter)}}</span></td>
             <td *ngIf="drive.letter.length < 8">{{shortenDriveName(drive.letter)}}</td>
             <td>{{driveFreeSpace(drive.used, drive.total)}}TiB</td>
