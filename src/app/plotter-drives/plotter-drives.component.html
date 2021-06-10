@@ -1,0 +1,45 @@
+<div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="isInitialLoading">
+  <app-loading-state></app-loading-state>
+</div>
+<!-- <div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="!isInitialLoading && plotters.length === 0">
+  <app-empty-state [icon]="faSatellite" [text]="'No Plotters added yet'"></app-empty-state>
+</div>
+<div class="d-flex justify-content-center" style="padding-top: 2rem" *ngIf="!isInitialLoading && plotters.length === 0 && !shareKey">
+  <app-download-links></app-download-links>
+</div> -->
+<!-- <div *ngIf="!isInitialLoading && plotters.length > 0"> -->
+  <div>
+  <div class="row">
+    <div class="table-responsive">
+      <table class="table table-dark table-hover">
+        <thead>
+          <tr class="d-flex">
+            <!-- <th class="col-2">Plotter</th> -->
+            <th class="col-4">Plotter</th>
+            <th class="col-2">Drive (Dest.)</th>
+            <th class="col-2">Total</th>
+            <th class="col-2">Used</th>
+            <th class="col-2">Free</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let drive of drives | orderBy:'percent' :true; trackBy: trackBy" [plotter]="plotter" class="d-flex">
+          <!-- <tr *ngFor="let plotter of plotters" class="d-flex"> -->
+          <!-- <td class="col-2">{{plotter[0].name}}</td> -->
+          <td class="col-4">{{drive.name}}</td>
+          <td class="col-2">{{drive.letter}}</td>
+          <td class="col-2">{{formatBytes(drive.total)}}TiB</td>
+          <td class="col-2">{{formatBytes(drive.used)}}TiB ({{driveUsedPercent(drive.used, drive.total)}})%</td>
+          <td class="col-2">{{formatBytes(driveFreeSpace(drive.used, drive.total))}}TiB ({{driveFreePercent(drive.used, drive.total)}})%
+            <span class="dot"
+              [attr.green]="driveFreeIndicator(drive.used, drive.total) === 0 ? true : null"
+              [attr.orange]="driveFreeIndicator(drive.used, drive.total) === 1 ? true : null"
+              [attr.red]="driveFreeIndicator(drive.used, drive.total) === 2 ? true : null">
+            </span>
+          </td>
+      </tr>
+      </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -36,6 +35,9 @@ import {ClipboardModule} from 'ngx-clipboard';
 import { ProfileComponent } from './profile/profile.component';
 import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.component';
 import { OrderModule } from 'ngx-order-pipe';
+import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
+import { HPoolMinerComponent } from './hpool-miner/hpool-miner.component';
+import { PlotterDrivesComponent } from './plotter-drives/plotter-drives.component';
 import { GlobalStatsComponent } from './global-stats/global-stats.component';
 import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
 
@@ -61,6 +63,9 @@ import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
     PlotterComponent,
     ProfileComponent,
     SharedDashboardComponent,
+    HPoolDashboardComponent,
+    HPoolMinerComponent,
+    PlotterDrivesComponent,
     GlobalStatsComponent,
 	ChiaStatsComponent,
   ],
