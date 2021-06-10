@@ -6,12 +6,12 @@ import { faSatellite } from '@fortawesome/free-solid-svg-icons';
 import * as moment from 'moment';
 
 @Component({
-  selector: 'app-plotters-chris-component',
-  templateUrl: './plotters-chris.component.html',
-  styleUrls: ['./plotters-chris.component.scss']
+  selector: 'app-plotter-drives-component',
+  templateUrl: './plotter-drives.component.html',
+  styleUrls: ['./plotter-drives.component.scss']
 })
 
-export class PlottersChrisComponent implements OnInit {
+export class PlotterDrivesComponent implements OnInit {
   // dtOptions: DataTables.Settings = {}
   @Input() plotter: any;
   public faSatellite = faSatellite;

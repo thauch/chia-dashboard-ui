@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -38,7 +37,7 @@ import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.co
 import { OrderModule } from 'ngx-order-pipe';
 import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
 import { HPoolMinerComponent } from './hpool-miner/hpool-miner.component';
-import { PlottersChrisComponent } from './plotters-chris/plotters-chris.component';
+import { PlotterDrivesComponent } from './plotter-drives/plotter-drives.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +63,7 @@ import { PlottersChrisComponent } from './plotters-chris/plotters-chris.componen
     SharedDashboardComponent,
     HPoolDashboardComponent,
     HPoolMinerComponent,
-    PlottersChrisComponent,
+    PlotterDrivesComponent,
   ],
   imports: [
     BrowserModule,

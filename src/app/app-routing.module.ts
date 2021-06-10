@@ -1,4 +1,4 @@
-import { PlottersChrisComponent } from './plotters-chris/plotters-chris.component';
+import { PlotterDrivesComponent } from './plotter-drives/plotter-drives.component';
 import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full', data: { titleSuffix: 'Login' } },
   { path: 'satellites', component: SatelliteListComponent, pathMatch: 'full', data: { titleSuffix: 'Satellites' } },
-  { path: 'chris', component: PlottersChrisComponent, pathMatch: 'full', data: { titleSuffix: 'Chris' } },
+  { path: 'plotterdrives', component: PlotterDrivesComponent, pathMatch: 'full', data: { titleSuffix: 'Plotter Drives' } },
   { path: 'hpool', component: HPoolDashboardComponent, pathMatch: 'full', data: { titleSuffix: 'HPool' } },
   { path: 'profile', component: ProfileComponent, pathMatch: 'full', data: { titleSuffix: 'Profile' } },
   { path: 'shared/:shareKey', component: SharedDashboardComponent, pathMatch: 'full' },
