@@ -35,7 +35,7 @@
         </tbody>
       </table>
 
-      <table *ngIf="tempDrives.length === 0 && destDrives.length === 0" class="table table-sm table-dark plot-drive-table">
+      <table *ngIf="(tempDrives.length === 0 && destDrives.length === 0) && (drives.length > 0)" class="table table-sm table-dark plot-drive-table">
         <thead>
           <tr>
             <th scope="col">Drive</th>
