@@ -83,42 +83,36 @@ export class PlotterComponent implements OnInit {
   }
 
   get drives() {
-    try {
-    return this.plotter.drives;
+    let drives = [];
+    if (this.plotter.drives != null) {
+      drives = this.plotter.drives;
     }
-    catch(e) {
-    }
+    return drives;
   }
 
   get tempDrives() {
-    let temp = [];
-    try {
+    let drives = []
+    if (this.plotter.drives != undefined) {
       this.plotter.drives.map((x) => {
         if (x.type == "t") {
-          temp.push(x)
+          drives.push(x)
         }
       });
-      return temp;
-    }
-    catch(e) {
-      console.log(e);
-    };
+   }
+    return drives;
   }
 
   get destDrives() {
-    let dest = [];
-    try {
+    let drives = []
+    if (this.plotter.drives != undefined) {
       this.plotter.drives.map((x) => {
         if (x.type == "d") {
-          dest.push(x)
+          drives.push(x)
         }
       });
-      return dest;
     }
-    catch(e) {
-      console.log(e);
-      };
-    }
+    return drives;
+  }
 
   get completedPlotsToday() {
     return this.plotter.completedPlotsToday;
