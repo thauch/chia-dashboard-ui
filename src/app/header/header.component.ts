@@ -68,6 +68,6 @@ export class HeaderComponent {
     if (this.user.email != null) {
       return this.user.email;
     }
-    return null;
+    return "User";
   }
 }
