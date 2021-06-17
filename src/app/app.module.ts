@@ -1,3 +1,4 @@
+import { FarmersComponent } from './farmers/farmers.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,9 +38,12 @@ import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.co
 import { OrderModule } from 'ngx-order-pipe';
 import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
 import { HPoolMinerComponent } from './hpool-miner/hpool-miner.component';
-import { PlotterDrivesComponent } from './plotter-drives/plotter-drives.component';
+import { PlottersDrivesComponent } from './plotters-drives/plotters-drives.component';
 import { GlobalStatsComponent } from './global-stats/global-stats.component';
 import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
+import { PlottersComponent } from './plotters/plotters.component';
+import { PlottersDetailsComponent } from './plotters-details/plotters-details.component';
+import { HarvestersComponent } from './harvesters/harvesters.component';
 
 @NgModule({
   declarations: [
@@ -65,9 +69,13 @@ import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
     SharedDashboardComponent,
     HPoolDashboardComponent,
     HPoolMinerComponent,
-    PlotterDrivesComponent,
+    PlottersDrivesComponent,
     GlobalStatsComponent,
-	ChiaStatsComponent,
+	  ChiaStatsComponent,
+    PlottersComponent,
+    PlottersDetailsComponent,
+    HarvestersComponent,
+    FarmersComponent,
   ],
   imports: [
     BrowserModule,

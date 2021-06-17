@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="isInitialLoading">
+  <app-loading-state></app-loading-state>
+</div>
+<!-- <div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="!isInitialLoading && plotters.length === 0">
+  <app-empty-state [icon]="faSatellite" [text]="'No Plotters added yet'"></app-empty-state>
+</div>
+<div class="d-flex justify-content-center" style="padding-top: 2rem" *ngIf="!isInitialLoading && plotters.length === 0 && !shareKey">
+  <app-download-links></app-download-links>
+</div> -->
+<!-- <div *ngIf="!isInitialLoading && plotters.length > 0"> -->
+  <div>
+  <div class="row">
+    <div class="card col-12" *ngFor="let plotter of plotters | orderBy: 'satelliteName'">
+      <div class="card-header">
+          <span class="dot"
+            [attr.green]="lastUpdatedState(plotter) === 0 ? true : null"
+            [attr.orange]="lastUpdatedState(plotter) === 1 ? true : null"
+            [attr.red]="lastUpdatedState(plotter) === 2 ? true : null">
+          </span>
+          <span class="pl-2">{{plotter.satelliteName}}: </span>
+          <h6></h6>
+      </div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table table-dark table-hover">
+            <thead>
+              <tr class="d-flex">
+                <th class="col-1">Size</th>
+                <th class="col-1">Phase</th>
+                <th class="col-1">Elapsed</th>
+                <th class="col-1">Used</th>
+                <th class="col-1">Free</th>
+                <th class="col-1"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let job of jobs(plotter) | orderBy: 'drive.letter'" class="d-flex">
+                <td class="col-1">{{job.kSize}}</td>
+                <td class="col-1">{{job.phase}}</td>
+                <!-- <td class="col-1">{{formatBytes(drive.total)}}TiB</td>
+                <td class="col-1">{{formatBytes(drive.used)}}TiB ({{driveUsedPercent(drive.used, drive.total)}}%)</td>
+                <td class="col-1">{{formatBytes(driveFreeSpace(drive.used, drive.total))}}TiB ({{driveFreePercent(drive.used, drive.total)}}%)
+                  <span class="dot"
+                    [attr.green]="driveFreeIndicator(drive.used, drive.total) === 0 ? true : null"
+                    [attr.orange]="driveFreeIndicator(drive.used, drive.total) === 1 ? true : null"
+                    [attr.red]="driveFreeIndicator(drive.used, drive.total) === 2 ? true : null">
+                  </span></td> -->
+                  <td class="col-1"></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

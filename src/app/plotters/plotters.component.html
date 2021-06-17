@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="isInitialLoading">
+  <app-loading-state></app-loading-state>
+</div>
+<div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="!isInitialLoading && plotters.length === 0">
+  <app-empty-state [icon]="faSatellite" [text]="'No Plotters added yet'"></app-empty-state>
+</div>
+<div class="d-flex justify-content-center" style="padding-top: 2rem" *ngIf="!isInitialLoading && plotters.length === 0 && !shareKey">
+  <app-download-links></app-download-links>
+</div>
+<div *ngIf="!isInitialLoading && plotters.length > 0">
+  <div class="row">
+    <app-plotter
+      *ngFor="let plotter of plotters | orderBy: 'satelliteName'; trackBy: trackBy"
+      [plotter]="plotter"
+      class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
+    </app-plotter>
+  </div>
+</div>

@@ -2,7 +2,6 @@ import { Component, ViewChild} from '@angular/core';
 import {ApiService} from '../api.service';
 import {StateService} from '../state.service';
 import {AddNewSatelliteModalComponent} from '../add-new-satellite-modal/add-new-satellite-modal.component';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -13,7 +12,6 @@ export class HeaderComponent {
   @ViewChild(AddNewSatelliteModalComponent) child;
 
   public isMenuCollapsed = true;
-  public faHeart = faHeart;
 
   constructor(
     private apiService: ApiService,
@@ -58,5 +56,18 @@ export class HeaderComponent {
 
   get user() {
     return this.stateService.user;
+  }
+
+  displayName() {
+    if (this.user.username != null) {
+      return this.user.username;
+    }
+    if (this.user.firstName != null) {
+      return this.user.firstName;
+    }
+    if (this.user.email != null) {
+      return this.user.email;
+    }
+    return null;
   }
 }
