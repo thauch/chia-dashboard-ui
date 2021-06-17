@@ -9,25 +9,25 @@ export class ToastService {
 
   showSuccessToast(msg, title = '', options = {}) {
     options = Object.assign({
-      timeOut: 1500,
+      timeOut: 1000,
       progressBar: true,
-      tapToDismiss: false,
+      tapToDismiss: true,
     }, options);
     this.toastr.success(msg, title, options);
   }
 
   showInfoToast(msg, title = '', options = {}) {
     options = Object.assign({
-      timeOut: 3000,
+      timeOut: 2000,
       progressBar: true,
-      tapToDismiss: false,
+      tapToDismiss: true,
     }, options);
     this.toastr.info(msg, title, options);
   }
 
   showErrorToast(msg, title = '', options = {}) {
     options = Object.assign({
-      timeOut: 5000,
+      timeOut: 2000,
       progressBar: true,
       tapToDismiss: false,
     }, options);

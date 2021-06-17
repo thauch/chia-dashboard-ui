@@ -31,6 +31,9 @@
       ></fa-icon>
       {{satellite.hidden ? 'Hidden' : 'Visible'}}
     </button>
+    <div style="margin-top: 5px">
+      <button (click)="open(keyModal)" class="btn btn-dark">Show API Key</button>
+    </div>
   </div>
   <div class="card-footer">
     <small class="text-muted d-flex justify-content-between">
@@ -39,3 +42,29 @@
     </small>
   </div>
 </div>
+
+<ng-template #keyModal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">{{satellite.name}}: API Key</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="input-group">
+      <input type="text" class="form-control" [value]="satellite.apiKey" readonly>
+      <div class="input-group-append">
+        <div class="input-group-text"
+               ngbTooltip="Copy"
+               ngxClipboard
+               [cbContent]="satellite.apiKey"
+               style="cursor: pointer">
+          <fa-icon [icon]="faCopy"></fa-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Close</button>
+  </div>
+</ng-template>

@@ -5,6 +5,8 @@ import {FormControl} from '@angular/forms';
 import {ApiService} from '../api.service';
 import {ToastService} from '../toast.service';
 import {StateService} from '../state.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-satellite',
@@ -12,18 +14,22 @@ import {StateService} from '../state.service';
   styleUrls: ['./satellite.component.scss']
 })
 export class SatelliteComponent implements OnInit {
+  closeResult = '';
   @Input() satellite: any;
   @Output() delete = new EventEmitter<void>();
 
   public faTrash = faTrash;
   public faEyeSlash = faEyeSlash;
+  public faCopy = faCopy;
   public faEye = faEye;
-  public nameControl: FormControl
+  public nameControl: FormControl;
+  
 
   constructor(
     private apiService: ApiService,
     private toastService: ToastService,
     private stateService: StateService,
+    private modalService: NgbModal,
   ) {}
 
   ngOnInit(): void {
@@ -55,6 +61,14 @@ export class SatelliteComponent implements OnInit {
 
   get lastUpdatedBefore() {
     return moment(this.satellite.updatedAt).fromNow();
+  }
+
+  get apiKey() {
+    return this.satellite.apiKey;
+  }
+
+  open(content) {
+    this.modalService.open(content).result;
   }
 
   onDelete() {
