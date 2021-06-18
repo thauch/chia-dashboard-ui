@@ -51,7 +51,7 @@
         </a>
       </li>
     </ul>
-    <div *ngIf="isAuthenticated" style="padding-right: 50px; padding-top: 8px; padding-bottom: 8px">
+    <div *ngIf="isAuthenticated" style="padding-right: 40px; padding-top: 8px; padding-bottom: 8px">
       <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0" style="margin-top: 10px;">
         <select class="custom-select currency-select" [ngModel]="selectedCurrency" (ngModelChange)="setSelectedCurrency($event)">
           <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
@@ -67,10 +67,10 @@
           <button ngbDropdownItem routerLink="/satellites" routerLinkActive="active" (click)="onTabButtonClick()">
             Satellites
           </button>
-          <button ngbDropdownItem routerLinkActive="active">
+          <button ngbDropdownItem routerLink="account/dashboardorder" routerLinkActive="active">
             Account Settings
           </button>
-          <button ngbDropdownItem routerLink="/profile" routerLinkActive="active">
+          <button ngbDropdownItem routerLink="/account/sharedashboard" routerLinkActive="active">
             Share Dashboard
           </button>
           <button ngbDropdownItem (click)="logout()">

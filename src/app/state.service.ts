@@ -179,6 +179,7 @@ export class StateService {
     }
     this.stateUpdated.next();
   }
+  
   async updateSharedSatellites() {
     try {
       this.satellites = await this.apiService.getSharedSatellites();
