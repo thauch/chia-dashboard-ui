@@ -30,9 +30,14 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.scss",
-              "src/bootstrap-xxl.css"
+              "src/bootstrap-xxl.css",
+              "node_modules/datatables.net-bs4/css/dataTables.bootstrap4.min.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/datatables.net/js/jquery.dataTables.js",
+              "node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js"
+            ],
             "allowedCommonJsDependencies": [
               "bignumber.js"
             ]

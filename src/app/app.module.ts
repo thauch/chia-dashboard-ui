@@ -46,6 +46,7 @@ import { PlottersDetailsComponent } from './plotters-details/plotters-details.co
 import { HarvestersComponent } from './harvesters/harvesters.component';
 import { AccountDashboardOrderComponent } from './account-dashboard-order/account-dashboard-order.component';
 import { SortablejsModule } from 'ngx-sortablejs';
+import { DataTablesModule } from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { SortablejsModule } from 'ngx-sortablejs';
     ReactiveFormsModule,
     ClipboardModule,
     OrderModule,
+    DataTablesModule,
     SortablejsModule.forRoot({ 
       animation: 150 
     }),

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark sticky-navbar">
+<nav class="navbar navbar-expand-xl navbar-dark sticky-navbar">
   <a class="navbar-brand" href="/">
     <img src="assets/chia_logo.svg" height="32" >
     <span style="margin-left: 10px; vertical-align: bottom;">Dashboard</span>
@@ -15,7 +15,7 @@
           </button>
         </a>
       </li>
-      <!-- <li class="nav-item" *ngIf="user">
+      <li class="nav-item" *ngIf="user">
         <a class="nav-link">
           <div ngbDropdown class="d-inline-block">
             <button type="button" class="btn btn-outline-success" id="plotterDropDown" ngbDropdownToggle>
@@ -23,7 +23,7 @@
             </button>
             <div ngbDropdownMenu aria-labelledby="plotterDropDown">
               <button ngbDropdownItem routerLink="/plotters/summary">Summary</button>
-              <button ngbDropdownItem routerLink="/plotters/details">Details</button>
+              <!-- <button ngbDropdownItem routerLink="/plotters/details">Details</button> -->
               <button ngbDropdownItem routerLink="/plotters/drives">Drives</button>
             </div>
           </div>
@@ -42,7 +42,7 @@
             Farmers
           </button>
         </a>
-      </li> -->
+      </li>
       <li class="nav-item"  *ngIf="user">
         <a class="nav-link">
           <button type="button" class="btn btn-outline-info" (click)="openAddSatelliteModal()">
@@ -58,9 +58,10 @@
         </select>
       </div>
       <div ngbDropdown class="d-inline-block" style="margin-left: 10px;">
-        <button class="btn btn-outline-primary" id="userDropdown" ngbDropdownToggle>
+        <button class="btn btn-outline-info" id="userDropdown" ngbDropdownToggle>
           <span *ngIf="user && user.avatarUrl">
-            <img src="{{user.avatarUrl}}" width="30" height="30" style="border-radius: 100%"><span *ngIf="displayName() != null" style="margin-left: 5px">{{displayName()}}</span>
+            <img src="{{user.avatarUrl}}" width="22" height="22" style="border-radius: 100%">
+            <span *ngIf="displayName() != null" style="margin-left: 8px">{{displayName()}}</span>
           </span>
         </button>
         <div ngbDropdownMenu aria-labelledby="userDropdown">

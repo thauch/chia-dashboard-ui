@@ -1,32 +1,35 @@
 <div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="isInitialLoading">
   <app-loading-state></app-loading-state>
 </div>
-<!-- <div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="!isInitialLoading && plotters.length === 0">
-  <app-empty-state [icon]="faSatellite" [text]="'No Plotters added yet'"></app-empty-state>
+<div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="!isInitialLoading && drives.length === 0">
+  <app-empty-state [icon]="faSatellite" [text]="'No drives added yet'"></app-empty-state>
 </div>
-<div class="d-flex justify-content-center" style="padding-top: 2rem" *ngIf="!isInitialLoading && plotters.length === 0 && !shareKey">
+<div class="d-flex justify-content-center" style="padding-top: 2rem" *ngIf="!isInitialLoading && drives.length === 0 && !shareKey">
   <app-download-links></app-download-links>
-</div> -->
-<!-- <div *ngIf="!isInitialLoading && plotters.length > 0"> -->
+</div>
+<div *ngIf="!isInitialLoading && drives.length > 0">
   <div>
   <div class="row">
-    <div class="table-responsive">
-      <table class="table table-dark table-hover">
+    <div class="table-responsive mt-3">
+      <table datatable [dtOptions]="dtOptions" class="table table-dark table-hover">
         <thead>
           <tr class="d-flex">
-            <!-- <th class="col-2">Plotter</th> -->
-            <th class="col-4">Plotter</th>
-            <th class="col-2">Drive (Dest.)</th>
-            <th class="col-2">Total</th>
-            <th class="col-2">Used</th>
-            <th class="col-2">Free</th>
+            <th class="col-2 pr-3">Plotter</th>
+            <th class="col-2 pr-3">Drive (Dest.)</th>
+            <th class="col-2 pr-3">Total</th>
+            <th class="col-2 pr-3">Used</th>
+            <th class="col-2 pr-3">Free</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let drive of drives | orderBy:'percent' :true; trackBy: trackBy" [plotter]="plotter" class="d-flex">
-          <!-- <tr *ngFor="let plotter of plotters" class="d-flex"> -->
-          <!-- <td class="col-2">{{plotter[0].name}}</td> -->
-          <td class="col-4">{{drive.name}}</td>
+          <td class="col-2">{{drive.name}}
+            <span class="dot ml-1"
+              [attr.green]="lastUpdatedState(drive.lastUpdate, drive.satelliteUpdatedAt) === 0 ? true : null"
+              [attr.orange]="lastUpdatedState(drive.lastUpdate, drive.satelliteUpdatedAt) === 1 ? true : null"
+              [attr.red]="lastUpdatedState(drive.lastUpdate, drive.satelliteUpdatedAt) === 2 ? true : null">
+            </span>
+          </td>
           <td class="col-2">{{drive.letter}}</td>
           <td class="col-2">{{formatBytes(drive.total)}}TiB</td>
           <td class="col-2">{{formatBytes(drive.used)}}TiB ({{driveUsedPercent(drive.used, drive.total)}})%</td>
@@ -40,6 +43,7 @@
       </tr>
       </tbody>
       </table>
+      <div>(sort by clicking on the titles)</div>
     </div>
   </div>
 </div>

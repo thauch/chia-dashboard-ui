@@ -49,6 +49,7 @@ export class PlottersDetailsComponent implements OnInit {
   }
 
   get plotters() {
+    console.log(this.stateService.plotters);
     return this.stateService.plotters;
   }
 
@@ -119,6 +120,22 @@ export class PlottersDetailsComponent implements OnInit {
       this.reverse=!this.reverse
   }
 
+  getJobProgress(job) {
+    if (job.progress === undefined) {
+      return 'N/A';
+    }
+
+    return `${(job.progress * 100).toFixed(2)}%`;
+  }
+
+  getJobRuntime(job) {
+    if (!job.startedAt) {
+      return 'N/A';
+    }
+
+    return moment(job.startedAt).fromNow(true);
+  }
+  
   formatBytes(bytes) {
     return (bytes / Math.pow(1024, 4)).toFixed(2);
   }
