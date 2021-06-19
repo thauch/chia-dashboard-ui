@@ -20,11 +20,13 @@ export class WalletSummaryComponent implements OnInit {
   }
 
   get walletCount() {
-    return this.uniqueWallets.reduce((acc, curr) => acc + curr.wallets.length, 0);
+    return this.wallets.length;
+    // return this.uniqueWallets.reduce((acc, curr) => acc + curr.wallets.length, 0);
   }
 
   get totalBalance() {
-    return this.uniqueWallets.reduce((acc, wallet) => acc.plus(wallet.wallets.reduce((subAcc, subWallet) => subAcc.plus(subWallet.balance.unconfirmed), new BigNumber(0))), new BigNumber(0));
+    // return this.uniqueWallets.reduce((acc, wallet) => acc.plus(wallet.wallets.reduce((subAcc, subWallet) => subAcc.plus(subWallet.balance.unconfirmed), new BigNumber(0))), new BigNumber(0));
+    return this.wallets.reduce((acc, wallet) => acc.plus(wallet.wallets.reduce((subAcc, subWallet) => subAcc.plus(subWallet.balance.unconfirmed), new BigNumber(0))), new BigNumber(0));
   }
 
   get totalBalanceFormatted() {
