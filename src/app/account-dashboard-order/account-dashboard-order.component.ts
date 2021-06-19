@@ -41,18 +41,20 @@ export class AccountDashboardOrderComponent implements OnInit {
   }
   
   get satelliteOrder() {
-    if (this.user.satelliteOrder == 0) {
-      const order = this.defOrder;
-      return order;
+    let order = [];
+    if (this.user.satelliteOrder == null || this.user.satelliteOrder == 0) {
+      order = this.defOrder;
     }
-    const order = this.user.satelliteOrder;
-    return [
-      order[0],
-      order[1],
-      order[2],
-      order[3],
-      order[4]
-    ]
+    else {
+      order = [
+        this.user.satelliteOrder[0],
+        this.user.satelliteOrder[1],
+        this.user.satelliteOrder[2],
+        this.user.satelliteOrder[3],
+        this.user.satelliteOrder[4]
+      ];
+    }
+    return order;
   }
   
   async defaultOrder() {
