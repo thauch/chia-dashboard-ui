@@ -57,20 +57,22 @@ export class PlotterDrivesComponent implements OnInit {
       const satelliteName = plotter.satelliteName;
       const lastUpdate = plotter.lastUpdate;
       const status = plotter.status;
-      plotter.drives.forEach(drive => {
-        if (drive.type != "t") {
-        const singleDrive = {
-          name: satelliteName,
-          lastUpdate: lastUpdate,
-          status: status,
-          letter: drive.letter,
-          total: drive.total,
-          used: drive.used,
-          percent: drive.percent
-        };
-        driveList.push(singleDrive);
-      }
-      });;
+      if (plotter.drives != undefined) {
+        plotter.drives.forEach(drive => {
+          if (drive.type == "d") {
+          const singleDrive = {
+            name: satelliteName,
+            lastUpdate: lastUpdate,
+            status: status,
+            letter: drive.letter,
+            total: drive.total,
+            used: drive.used,
+            percent: drive.percent
+          };
+          driveList.push(singleDrive);
+        }
+        });;
+    }
     })
     return driveList;
   }

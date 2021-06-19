@@ -12,7 +12,7 @@ import * as moment from 'moment';
 })
 
 export class PlottersDrivesComponent implements OnInit {
-  // dtOptions: DataTables.Settings = {}
+  dtOptions: DataTables.Settings = {}
   @Input() plotter: any;
   public faSatellite = faSatellite;
   public shareKey: string = null;
@@ -23,17 +23,17 @@ export class PlottersDrivesComponent implements OnInit {
     private stateService: StateService,
   ) {}
 
-  async ngOnInit() {
+  ngOnInit(): void {
     if (!this.apiService.isAuthenticated) {
-      await this.router.navigate(['/login']);
+      this.router.navigate(['/login']);
       return;
     }
-    // this.dtOptions = {
-    //   pagingType: 'full_numbers',
-    //   pageLength: 5,
-    //   processing: true
-    // };
-    await this.stateService.init();
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 10,
+      processing: true
+    };
+    this.stateService.init();
   }
 
   trackBy(index, item) {
@@ -50,11 +50,11 @@ export class PlottersDrivesComponent implements OnInit {
 
   
   get drives() {
-
     let driveList = [];
     const plotters = this.stateService.plotters;
     plotters.forEach((plotter) => {
       const satelliteName = plotter.satelliteName;
+      const satelliteUpdatedAt = plotter.satelliteUpdatedAt;
       const lastUpdate = plotter.lastUpdate;
       const status = plotter.status;
       if (plotter.drives != undefined) {
@@ -63,6 +63,7 @@ export class PlottersDrivesComponent implements OnInit {
           const singleDrive = {
             name: satelliteName,
             lastUpdate: lastUpdate,
+            satelliteUpdatedAt: satelliteUpdatedAt,
             status: status,
             letter: drive.letter,
             total: drive.total,
@@ -108,9 +109,9 @@ export class PlottersDrivesComponent implements OnInit {
     return 0;
   }
 
-  get lastUpdatedState() {
-    const diff = moment().diff(this.plotter.lastUpdate, 'minutes');
-    const diffSatelliteUpdate = moment().diff(this.plotter.satelliteUpdatedAt, 'minutes');
+  lastUpdatedState(lastUpdate, satelliteUpdatedAt) {
+    const diff = moment().diff(lastUpdate, 'minutes');
+    const diffSatelliteUpdate = moment().diff(satelliteUpdatedAt, 'minutes');
     if (diff < 11 || diffSatelliteUpdate < 3) {
       return 0;
     }

@@ -8,9 +8,10 @@ import { Routes, RouterModule } from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {LoginComponent} from './login/login.component';
 import {SatelliteListComponent} from './satellite-list/satellite-list.component';
-import {ProfileComponent} from './profile/profile.component';
+import {AccountShareDashboardComponent} from './account-share-dashboard/account-share-dashboard.component';
 import {SharedDashboardComponent} from './shared-dashboard/shared-dashboard.component';
 import { HarvestersComponent } from './harvesters/harvesters.component';
+import { AccountDashboardOrderComponent } from './account-dashboard-order/account-dashboard-order.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'harvesters/summary', component: HarvestersComponent, pathMatch: 'full', data: { titleSuffix: 'Harvesters Summary' } },
   { path: 'farmers/summary', component: FarmersComponent, pathMatch: 'full', data: { titleSuffix: 'Farmers Summary' } },
   { path: 'hpool', component: HPoolDashboardComponent, pathMatch: 'full', data: { titleSuffix: 'HPool' } },
-  { path: 'profile', component: ProfileComponent, pathMatch: 'full', data: { titleSuffix: 'Profile' } },
+  { path: 'account/dashboardorder', component: AccountDashboardOrderComponent, pathMatch: 'full', data: { titleSuffix: 'Dashboard Order' } },
+  { path: 'account/sharedashboard', component: AccountShareDashboardComponent, pathMatch: 'full', data: { titleSuffix: 'Share Dashboard' } },
   { path: 'shared/:shareKey', component: SharedDashboardComponent, pathMatch: 'full' },
   { path: 'oauth', loadChildren: () => import('./oauth/oauth.module').then(m => m.OAuthModule) },
   { path: '**', redirectTo: '' }

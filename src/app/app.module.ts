@@ -33,7 +33,7 @@ import { ConfirmationModalComponent } from './confirmation-modal/confirmation-mo
 import { PlotterComponent } from './plotter/plotter.component';
 import { EditableModule } from '@ngneat/edit-in-place';
 import {ClipboardModule} from 'ngx-clipboard';
-import { ProfileComponent } from './profile/profile.component';
+import { AccountShareDashboardComponent } from './account-share-dashboard/account-share-dashboard.component';
 import { SharedDashboardComponent } from './shared-dashboard/shared-dashboard.component';
 import { OrderModule } from 'ngx-order-pipe';
 import { HPoolDashboardComponent } from './hpool-dashboard/hpool-dashboard.component';
@@ -44,6 +44,9 @@ import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
 import { PlottersComponent } from './plotters/plotters.component';
 import { PlottersDetailsComponent } from './plotters-details/plotters-details.component';
 import { HarvestersComponent } from './harvesters/harvesters.component';
+import { AccountDashboardOrderComponent } from './account-dashboard-order/account-dashboard-order.component';
+import { SortablejsModule } from 'ngx-sortablejs';
+import { DataTablesModule } from "angular-datatables";
 
 @NgModule({
   declarations: [
@@ -65,7 +68,7 @@ import { HarvestersComponent } from './harvesters/harvesters.component';
     FarmerComponent,
     ConfirmationModalComponent,
     PlotterComponent,
-    ProfileComponent,
+    AccountShareDashboardComponent,
     SharedDashboardComponent,
     HPoolDashboardComponent,
     HPoolMinerComponent,
@@ -76,6 +79,7 @@ import { HarvestersComponent } from './harvesters/harvesters.component';
     PlottersDetailsComponent,
     HarvestersComponent,
     FarmersComponent,
+    AccountDashboardOrderComponent,
   ],
   imports: [
     BrowserModule,
@@ -100,6 +104,10 @@ import { HarvestersComponent } from './harvesters/harvesters.component';
     ReactiveFormsModule,
     ClipboardModule,
     OrderModule,
+    DataTablesModule,
+    SortablejsModule.forRoot({ 
+      animation: 150 
+    }),
   ],
   providers: [
     WINDOW_PROVIDERS,

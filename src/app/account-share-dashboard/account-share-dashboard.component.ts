@@ -7,11 +7,11 @@ import { faCopy } from '@fortawesome/free-regular-svg-icons';
 import {Router} from '@angular/router';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-account-share-dashboard',
+  templateUrl: './account-share-dashboard.component.html',
+  styleUrls: ['./account-share-dashboard.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class AccountShareDashboardComponent implements OnInit {
   public faCopy = faCopy;
 
   constructor(
@@ -30,8 +30,13 @@ export class ProfileComponent implements OnInit {
     await this.stateService.init();
   }
 
+  get isInitialLoading() {
+    return this.stateService.isInitialLoading;
+  }
+  
   get user() {
-    return this.stateService.user;
+    const user = this.stateService.user;
+    return user;
   }
 
   get shareUrl() {

@@ -31,6 +31,32 @@ export class DashboardComponent implements OnInit {
     return item.satelliteId;
   }
 
+  get user() {
+    return this.stateService.user;
+  }
+
+  satelliteOrder() {
+    const user = this.stateService.user;
+    if (!user.satelliteOrder || user.satelliteOrder.length == 0) {
+      return {
+        plotter: 0,
+        harvester: 1,
+        farmer: 2,
+        fullnode: 3,
+        wallet: 4
+      }
+    };
+    const order = user.satelliteOrder;
+    const orderArr = {
+      plotter: order.indexOf("Plotters"),
+      harvester: order.indexOf("Harvesters"),
+      farmers: order.indexOf("Farmers"),
+      fullnode: order.indexOf("Full Nodes"),
+      wallet: order.indexOf("Wallets")
+    }
+    return orderArr;
+  }
+
   get rate() {
     return this.stateService.getRateForSelectedCurrency();
   }

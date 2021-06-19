@@ -1,0 +1,20 @@
+<div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="isInitialLoading">
+  <app-loading-state></app-loading-state>
+</div>
+<div *ngIf="!isInitialLoading" class="d-flex justify-content-center" style="padding-top: 2rem">
+  <div class="card col-12 col-md-6 col-lg-6 col-xl-6 col-xxl-6">
+    <div class="card-body">
+      <h5 class="card-title text-center">Reorder your Dashboard</h5>
+      <div class="text-center" style="padding-bottom: 0.5rem">(drag to reorder)</div>
+        <div [sortablejs]="user.satelliteOrder">
+         <div *ngFor="let sat of satelliteOrder">
+          <button type="button" class="btn btn-outline-info mt-1 w-100">{{sat}}</button>
+         </div>
+        </div>
+      <div class="d-flex justify-content-between mt-3">
+        <button type="button" class="btn btn-outline-primary w-50 mr-2" (click)="defaultOrder()">Default</button>
+        <button type="button" class="btn btn-outline-primary w-50 ml-2" (click)="saveOrder()">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
