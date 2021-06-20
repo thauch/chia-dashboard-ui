@@ -50,7 +50,7 @@ export class DashboardComponent implements OnInit {
     const orderArr = {
       plotter: order.indexOf("Plotters"),
       harvester: order.indexOf("Harvesters"),
-      farmers: order.indexOf("Farmers"),
+      farmer: order.indexOf("Farmers"),
       fullnode: order.indexOf("Full Nodes"),
       wallet: order.indexOf("Wallets")
     }
