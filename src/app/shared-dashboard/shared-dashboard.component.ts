@@ -6,7 +6,7 @@ import { faSatellite } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-shared-dashboard',
-  templateUrl: '../dashboard/dashboard.component.html',
+  templateUrl: '../shared-dashboard/shared-dashboard.component.html',
   styleUrls: ['./shared-dashboard.component.scss']
 })
 export class SharedDashboardComponent implements OnInit {
@@ -71,14 +71,14 @@ export class SharedDashboardComponent implements OnInit {
     return this.stateService.plotters;
   }
 
-  satelliteOrder() {
-    return {
-      plotter: 0,
-      harvester: 1,
-      farmer: 2,
-      fullnode: 3,
-      wallet: 4
-    }
-  }
+  // satelliteOrder() {
+  //   return {
+  //     plotter: 0,
+  //     harvester: 1,
+  //     farmer: 2,
+  //     fullnode: 3,
+  //     wallet: 4
+  //   }
+  // }
   
 }
