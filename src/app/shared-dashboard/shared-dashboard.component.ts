@@ -70,4 +70,15 @@ export class SharedDashboardComponent implements OnInit {
   get plotters() {
     return this.stateService.plotters;
   }
+
+  satelliteOrder() {
+    return {
+      plotter: 0,
+      harvester: 1,
+      farmer: 2,
+      fullnode: 3,
+      wallet: 4
+    }
+  }
+  
 }
