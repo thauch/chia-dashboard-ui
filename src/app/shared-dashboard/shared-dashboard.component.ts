@@ -6,7 +6,7 @@ import { faSatellite } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-shared-dashboard',
-  templateUrl: '../dashboard/dashboard.component.html',
+  templateUrl: '../shared-dashboard/shared-dashboard.component.html',
   styleUrls: ['./shared-dashboard.component.scss']
 })
 export class SharedDashboardComponent implements OnInit {
