@@ -77,6 +77,10 @@ export class DashboardComponent implements OnInit {
     return this.stateService.bestBlockchainState;
   }
 
+  get bestBlockchainStateFlax() {
+    return this.stateService.bestBlockchainStateSpare;
+  }
+
   get bestBlockchainStateSpare() {
     return this.stateService.bestBlockchainStateSpare;
   }

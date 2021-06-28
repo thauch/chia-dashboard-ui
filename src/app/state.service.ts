@@ -221,6 +221,29 @@ export class StateService {
     }, null);
   }
 
+  getBestBlockchainStateFlax() {
+    let list = [];
+    this.satellites.map((satellite) => {
+      if (satellite.coin == 'Flax') {
+        list.push(satellite);
+      }
+    });
+    return list.reduce((bestBlockchainState, satellite) => {
+      if (!satellite.services
+        || !satellite.services.fullNode
+        || !satellite.services.fullNode.stats
+        || !satellite.services.fullNode.stats.blockchainState
+      ) {
+        return bestBlockchainState;
+      }
+      if (!bestBlockchainState || satellite.services.fullNode.stats.blockchainState.syncStatus.syncedHeight > bestBlockchainState.syncStatus.syncedHeight) {
+        return satellite.services.fullNode.stats.blockchainState;
+      }
+
+      return bestBlockchainState;
+    }, null);
+  }
+
   getBestBlockchainStateSpare() {
     let list = [];
     this.satellites.map((satellite) => {
