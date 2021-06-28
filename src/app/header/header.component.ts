@@ -22,12 +22,24 @@ export class HeaderComponent {
     return this.stateService.selectedCurrency;
   }
 
+  get selectedDashboard() {
+    return this.stateService.selectedDashboard;
+  }
+
   get currencies() {
     return this.stateService.currencies;
   }
 
+  get dashboardTypes() {
+    return ['Chia', 'Flax','Spare','All'];
+  }
+
   setSelectedCurrency(currency) {
     this.stateService.setSelectedCurrency(currency);
+  }
+
+  setSelectedDashboard(dashboard) {
+    this.stateService.setSelectedDashboard(dashboard);
   }
 
   toggleMenuCollapse() {

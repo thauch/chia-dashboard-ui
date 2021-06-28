@@ -50,6 +50,13 @@ export class HarvesterComponent implements OnInit {
     return this.harvester.satelliteName;
   }
 
+  get satelliteCoin() {
+    if (this.harvester.satelliteCoin == undefined) {
+      return 'Chia';
+    }
+    return this.harvester.satelliteCoin ;
+  }
+
   get plotCount() {
     return this.harvester.plotCount;
   }

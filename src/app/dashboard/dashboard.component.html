@@ -10,34 +10,52 @@
   <app-download-links></app-download-links>
 </div>
 <div *ngIf="!isInitialLoading && satellites.length > 0">
-  <div class="row">
-    <app-farm-summary [wallets]="wallets" [fullNodes]="fullNodes" [harvesters]="harvesters" [farmers]="farmers"
-      [bestBlockchainState]="bestBlockchainState" [rate]="rate" [selectedCurrency]="selectedCurrency"
+  <div class="row" *ngIf="satellitesChiaCount > 0">
+    <app-farm-summary-chia *ngIf="selectedDashboard === 'Chia' || selectedDashboard === 'All'" [wallets]="wallets('Chia')" [fullNodes]="fullNodes('Chia')" [harvesters]="harvesters('Chia')" [farmers]="farmers('Chia')"
+      [bestBlockchainState]="bestBlockchainState" [rate]="rate" [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard"
       class="p-1 col-12 col-md-6 col-lg-8 col-xl-8 col-xxl-18">
-    </app-farm-summary>
-    <app-wallet-summary [wallets]="wallets" [bestBlockchainState]="bestBlockchainState" [rate]="rate"
-      [selectedCurrency]="selectedCurrency" class="p-1 col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-6">
-    </app-wallet-summary>
+    </app-farm-summary-chia>
+    <app-wallet-summary-chia *ngIf="selectedDashboard === 'Chia' || selectedDashboard === 'All'" [wallets]="wallets('Chia')" [bestBlockchainState]="bestBlockchainState" [rate]="rate"
+      [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-6">
+    </app-wallet-summary-chia>
+  </div>
+  <div class="row" *ngIf="satellitesFlaxCount > 0">
+    <app-farm-summary-flax *ngIf="selectedDashboard === 'Flax' || selectedDashboard === 'All'" [wallets]="wallets('Flax')" [fullNodes]="fullNodes('Flax')" [harvesters]="harvesters('Flax')" [farmers]="farmers('Flax')"
+      [bestBlockchainState]="bestBlockchainState" [rate]="rate" [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard"
+      class="p-1 col-12 col-md-6 col-lg-8 col-xl-8 col-xxl-18">
+    </app-farm-summary-flax>
+    <app-wallet-summary-flax *ngIf="selectedDashboard === 'Flax' || selectedDashboard === 'All'" [wallets]="wallets('Flax')" [bestBlockchainState]="bestBlockchainState" [rate]="rate"
+      [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-6">
+    </app-wallet-summary-flax>
+  </div>
+  <div class="row" *ngIf="satellitesSpareCount > 0">
+    <app-farm-summary-spare *ngIf="selectedDashboard === 'Spare' || selectedDashboard === 'All'" [wallets]="wallets('Spare')" [fullNodes]="fullNodes('Spare')" [harvesters]="harvesters('Spare')" [farmers]="farmers('Spare')"
+      [bestBlockchainState]="bestBlockchainStateSpare" [rate]="rate" [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard"
+      class="p-1 col-12 col-md-6 col-lg-8 col-xl-8 col-xxl-18">
+    </app-farm-summary-spare>
+    <app-wallet-summary-spare *ngIf="selectedDashboard === 'Spare' || selectedDashboard === 'All'" [wallets]="wallets('Spare')" [bestBlockchainState]="bestBlockchainStateSpare" [rate]="rate"
+      [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-6">
+    </app-wallet-summary-spare>
   </div>
   <div class="row" style="display:flex;">
       <app-plotter [style.order]="satelliteOrder().plotter"
-        *ngFor="let plotter of plotters | orderBy: 'satelliteName'; trackBy: trackBy" [plotter]="plotter"
+        *ngFor="let plotter of plotters | orderBy: 'satelliteName'; trackBy: trackBy" [plotter]="plotter" [selectedDashboard]="selectedDashboard"
         class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
       </app-plotter>
       <app-harvester [style.order]="satelliteOrder().harvester"
-        *ngFor="let harvester of harvesters | orderBy: 'satelliteName'; trackBy: trackBy" [harvester]="harvester"
-        [bestBlockchainState]="bestBlockchainState" class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
+        *ngFor="let harvester of harvesters(selectedDashboard) | orderBy: 'satelliteName'; trackBy: trackBy" [harvester]="harvester"
+        [bestBlockchainState]="bestBlockchainState" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
       </app-harvester>
       <app-farmer [style.order]="satelliteOrder().farmer"
-        *ngFor="let farmer of farmers | orderBy: 'satelliteName'; trackBy: trackBy" [farmer]="farmer"
+        *ngFor="let farmer of farmers(selectedDashboard) | orderBy: 'satelliteName'; trackBy: trackBy" [farmer]="farmer" [selectedDashboard]="selectedDashboard"
         class="p-1 col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 col-xxl-8">
       </app-farmer>
       <app-full-node [style.order]="satelliteOrder().fullnode"
-        *ngFor="let fullNode of fullNodes | orderBy: 'satelliteName'; trackBy: trackBy" [fullNode]="fullNode"
+        *ngFor="let fullNode of fullNodes(selectedDashboard ) | orderBy: 'satelliteName'; trackBy: trackBy" [fullNode]="fullNode" [selectedDashboard]="selectedDashboard"
         class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
       </app-full-node>
-      <app-wallet [style.order]="satelliteOrder().wallet" *ngFor="let wallet of wallets; trackBy: trackBy" [wallet]="wallet"
-        [rate]="rate" [selectedCurrency]="selectedCurrency"
+      <app-wallet [style.order]="satelliteOrder().wallet" *ngFor="let wallet of wallets(selectedDashboard); trackBy: trackBy" [wallet]="wallet"
+        [rate]="rate" [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard"
         class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
       </app-wallet>
     </div>

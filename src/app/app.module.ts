@@ -25,8 +25,8 @@ import { SatelliteComponent } from './satellite/satellite.component';
 import { WalletComponent } from './wallet/wallet.component';
 import { FullNodeComponent } from './full-node/full-node.component';
 import { HarvesterComponent } from './harvester/harvester.component';
-import { FarmSummaryComponent } from './farm-summary/farm-summary.component';
-import { WalletSummaryComponent } from './wallet-summary/wallet-summary.component';
+import { FarmSummaryChiaComponent } from './farm-summary-chia/farm-summary-chia.component';
+import { WalletSummaryChiaComponent } from './wallet-summary-chia/wallet-summary-chia.component';
 import { DownloadLinksComponent } from './download-links/download-links.component';
 import { FarmerComponent } from './farmer/farmer.component';
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
@@ -47,6 +47,10 @@ import { HarvestersComponent } from './harvesters/harvesters.component';
 import { AccountDashboardOrderComponent } from './account-dashboard-order/account-dashboard-order.component';
 import { SortablejsModule } from 'ngx-sortablejs';
 import { DataTablesModule } from "angular-datatables";
+import { FarmSummaryFlaxComponent } from './farm-summary-flax/farm-summary-flax.component';
+import { FarmSummarySpareComponent } from './farm-summary-spare/farm-summary-spare.component';
+import { WalletSummaryFlaxComponent } from './wallet-summary-flax/wallet-summary-flax.component';
+import { WalletSummarySpareComponent } from './wallet-summary-spare/wallet-summary-spare.component';
 
 @NgModule({
   declarations: [
@@ -62,8 +66,8 @@ import { DataTablesModule } from "angular-datatables";
     WalletComponent,
     FullNodeComponent,
     HarvesterComponent,
-    FarmSummaryComponent,
-    WalletSummaryComponent,
+    FarmSummaryChiaComponent,
+    WalletSummaryChiaComponent,
     DownloadLinksComponent,
     FarmerComponent,
     ConfirmationModalComponent,
@@ -80,6 +84,10 @@ import { DataTablesModule } from "angular-datatables";
     HarvestersComponent,
     FarmersComponent,
     AccountDashboardOrderComponent,
+    FarmSummaryFlaxComponent,
+    FarmSummarySpareComponent,
+    WalletSummaryFlaxComponent,
+    WalletSummarySpareComponent,
   ],
   imports: [
     BrowserModule,

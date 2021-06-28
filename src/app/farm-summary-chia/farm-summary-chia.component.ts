@@ -8,11 +8,11 @@ const BLOCKS_PER_DAY = 4608;
 const BLOCKS_PER_YEAR = BLOCKS_PER_DAY * 365;
 
 @Component({
-  selector: 'app-farm-summary',
-  templateUrl: './farm-summary.component.html',
-  styleUrls: ['./farm-summary.component.scss']
+  selector: 'app-farm-summary-chia',
+  templateUrl: './farm-summary-chia.component.html',
+  styleUrls: ['./farm-summary-chia.component.scss']
 })
-export class FarmSummaryComponent implements OnInit {
+export class FarmSummaryChiaComponent implements OnInit {
   @Input() harvesters: any;
   @Input() fullNodes: any;
   @Input() wallets: any;

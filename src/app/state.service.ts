@@ -17,12 +17,14 @@ export class StateService {
   public chiaStats: any;
   public stateUpdated = new Subject();
   public bestBlockchainState: any = null;
+  public bestBlockchainStateSpare: any = null;
   private updateSatellitesInterval: any;
   private updateRatesInterval: any;
   public isInitialLoading: boolean = true;
   public rates = {};
   public currencies = [];
   public selectedCurrency = null;
+  public selectedDashboard = null;
 
   public wallets = [];
   public fullNodes = [];
@@ -41,8 +43,12 @@ export class StateService {
     private satelliteReleasesService: SatelliteReleasesService
   ) {
     this.selectedCurrency = this.localStorageService.getItem('selectedCurrency');
+    this.selectedDashboard = this.localStorageService.getItem('selectedDashboard');
     if (!this.selectedCurrency) {
       this.setSelectedCurrency('usd');
+    }
+    if (!this.selectedDashboard) {
+      this.setSelectedDashboard('All');
     }
   }
 
@@ -215,6 +221,29 @@ export class StateService {
     }, null);
   }
 
+  getBestBlockchainStateSpare() {
+    let list = [];
+    this.satellites.map((satellite) => {
+      if (satellite.coin == 'Spare') {
+        list.push(satellite);
+      }
+    });
+    return list.reduce((bestBlockchainState, satellite) => {
+      if (!satellite.services
+        || !satellite.services.fullNode
+        || !satellite.services.fullNode.stats
+        || !satellite.services.fullNode.stats.blockchainState
+      ) {
+        return bestBlockchainState;
+      }
+      if (!bestBlockchainState || satellite.services.fullNode.stats.blockchainState.syncStatus.syncedHeight > bestBlockchainState.syncStatus.syncedHeight) {
+        return satellite.services.fullNode.stats.blockchainState;
+      }
+
+      return bestBlockchainState;
+    }, null);
+  }
+
   async logout() {
     this.user = null;
     this.satellites = [];
@@ -227,6 +256,7 @@ export class StateService {
 
   updateFromSatellites() {
     this.bestBlockchainState = this.getBestBlockchainState();
+    this.bestBlockchainStateSpare = this.getBestBlockchainStateSpare();
     this.updateStatsFromSatellites('wallets', 'wallet');
     this.updateStatsFromSatellites('fullNodes', 'fullNode');
     this.updateStatsFromSatellites('harvesters', 'harvester');
@@ -248,6 +278,7 @@ export class StateService {
           satelliteId: satellite._id,
           satelliteUpdatedAt: satellite.updatedAt,
           collapsedState: satellite.collapsed,
+          satelliteCoin: satellite.coin,
         });
       }
       return statsCollection;
@@ -257,6 +288,11 @@ export class StateService {
   setSelectedCurrency(currency) {
     this.localStorageService.setItem('selectedCurrency', currency);
     this.selectedCurrency = currency;
+  }
+
+  setSelectedDashboard(dashboard) {
+    this.localStorageService.setItem('selectedDashboard', dashboard);
+    this.selectedDashboard = dashboard;
   }
 
   getRateForSelectedCurrency() {

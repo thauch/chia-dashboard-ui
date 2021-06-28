@@ -52,11 +52,19 @@
       </li>
     </ul>
     <div *ngIf="isAuthenticated" style="padding-right: 40px; padding-top: 8px; padding-bottom: 8px">
-      <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0" style="margin-top: 10px;">
+
+      <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey)" style="margin-top: 10px;">
+        <select class="custom-select currency-select" [ngModel]="selectedDashboard" (ngModelChange)="setSelectedDashboard($event)">
+          <option *ngFor="let type of dashboardTypes" [ngValue]="type" class="currency-select-option">{{type}}</option>
+        </select>
+      </div>
+
+      <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0" style="margin-top: 10px; margin-left: 10px;">
         <select class="custom-select currency-select" [ngModel]="selectedCurrency" (ngModelChange)="setSelectedCurrency($event)">
           <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
         </select>
       </div>
+
       <div ngbDropdown class="d-inline-block" style="margin-left: 10px;">
         <button class="btn btn-outline-info" id="userDropdown" ngbDropdownToggle>
           <span *ngIf="user && user.avatarUrl">

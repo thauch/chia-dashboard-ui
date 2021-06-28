@@ -165,6 +165,13 @@ export class FarmerComponent implements OnInit {
     return this.farmer.satelliteName;
   }
 
+  get satelliteCoin() {
+    if (this.farmer.satelliteCoin == undefined) {
+      return 'Chia';
+    }
+    return this.farmer.satelliteCoin ;
+  }
+
   get lastUpdatedBefore() {
     return moment(this.farmer.lastUpdate).fromNow();
   }

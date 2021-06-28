@@ -24,6 +24,13 @@ export class FullNodeComponent implements OnInit {
     return this.fullNode.satelliteName;
   }
 
+  get satelliteCoin() {
+    if (this.fullNode.satelliteCoin == undefined) {
+      return 'Chia';
+    }
+    return this.fullNode.satelliteCoin ;
+  }
+
   get status() {
     if (this.lastUpdatedState !== 0) {
       return 'Unknown';

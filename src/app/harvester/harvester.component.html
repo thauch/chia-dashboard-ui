@@ -5,6 +5,9 @@
   <div class="card-body card-body-with-title">
     <h5 class="card-title">
       Status: <span [class]="colorClassForSyncStatus">{{status}}</span>
+      <img *ngIf="satelliteCoin === 'Chia'" src="assets/chia_icon.png" height="20" class="float-right">
+      <img *ngIf="satelliteCoin === 'Flax'" src="assets/flax_icon.png" height="20" class="float-right"> 
+      <img *ngIf="satelliteCoin === 'Spare'" src="assets/spare_icon.png" height="20" class="float-right"> 
     </h5>
     <h6 class="card-subtitle mb-2 text-muted">
       {{plotCount}} Plots

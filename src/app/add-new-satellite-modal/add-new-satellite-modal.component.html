@@ -7,7 +7,15 @@
   </div>
   <div class="modal-body">
     <div *ngIf="!newSatellite.apiKey">
-      <input type="text" class="form-control" placeholder="Satellite name" [(ngModel)]="newSatelliteName" style="width: 20em">
+      <div class="form-row">
+        <input type="text" class="form-control w-75" placeholder="Satellite name" [(ngModel)]="newSatelliteName">
+        <select [(ngModel)]="newSatelliteCoin" class="custom-select form-control w-25">
+          <option hidden disabled selected>Select</option>
+          <option>Chia</option>
+          <option>Flax</option>
+          <option>Spare</option>
+        </select>
+      </div>
     </div>
     <div *ngIf="newSatellite.apiKey">
       <div class="alert alert-info" role="alert">
@@ -29,7 +37,7 @@
   </div>
   <div class="modal-footer">
     <button *ngIf="!newSatellite.apiKey" type="button" class="btn btn-outline-secondary" (click)="modal.dismiss('cancel')">Cancel</button>
-    <button *ngIf="!newSatellite.apiKey" type="button" class="btn btn-success" (click)="createSatellite()" [disabled]="!newSatelliteName || newSatelliteName.length === 0">
+    <button *ngIf="!newSatellite.apiKey" type="button" class="btn btn-success" (click)="createSatellite()" [disabled]="!newSatelliteName || newSatelliteName.length === 0 || newSatelliteCoin === 'Select'">
       <span *ngIf="isLoading">Adding</span>
       <span *ngIf="!isLoading">Add</span>
       <fa-icon [icon]="faCircleNotch" [spin]="true" *ngIf="isLoading" style="margin-top: 5px; margin-left: 0.8em"></fa-icon>
