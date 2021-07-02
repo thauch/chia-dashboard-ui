@@ -7,8 +7,8 @@
       <h5 class="card-title text-center">Reorder your Dashboard</h5>
       <div class="text-center" style="padding-bottom: 0.5rem">(drag to reorder)</div>
         <div [sortablejs]="user.satelliteOrder">
-         <div *ngFor="let sat of satelliteOrder">
-          <button type="button" class="btn btn-outline-info mt-1 w-100">{{sat}}</button>
+         <div *ngFor="let sat of satelliteOrder" class="text-center">
+          <button type="button" class="btn btn-info mt-1 w-100">{{sat}}</button>
          </div>
         </div>
       <div class="d-flex justify-content-between mt-3">
