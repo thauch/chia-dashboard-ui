@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {ApiService} from '../api.service';
 import {Router} from '@angular/router';
 import {StateService} from '../state.service';
-import { faSatellite, faUnderline } from '@fortawesome/free-solid-svg-icons';
+import { faSatellite } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,17 +13,25 @@ import { faSatellite, faUnderline } from '@fortawesome/free-solid-svg-icons';
 export class DashboardComponent implements OnInit {
   public faSatellite = faSatellite;
   public shareKey: string = null;
+  coin: string;
 
   constructor(
     private apiService: ApiService,
     private router: Router,
     private stateService: StateService,
+    private route: ActivatedRoute
   ) {}
 
   async ngOnInit() {
     if (!this.apiService.isAuthenticated) {
       await this.router.navigate(['/login']);
       return;
+    }
+    if (this.router.url === '/flax') {
+    this.stateService.setSelectedDashboard('Flax');
+    }
+    if (this.router.url === '/spare') {
+      this.stateService.setSelectedDashboard('Spare');
     }
     await this.stateService.init();
   }
