@@ -2,7 +2,7 @@
   <app-loading-state></app-loading-state>
 </div>
 <div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="!isInitialLoading && drives.length === 0">
-  <app-empty-state [icon]="faSatellite" [text]="'No drives added yet'"></app-empty-state>
+  <app-empty-state [icon]="faSatellite" [text]="'No Plotters added yet. This feature only works with Giro\'s version of swar which supports madmax. View the guides on how to set it up.'"></app-empty-state>
 </div>
 <div class="d-flex justify-content-center" style="padding-top: 2rem" *ngIf="!isInitialLoading && drives.length === 0 && !shareKey">
   <app-download-links></app-download-links>
