@@ -13,6 +13,8 @@ import { parse } from 'querystring';
 export class HarvesterComponent implements OnInit {
   @Input() harvester: any;
   @Input() bestBlockchainState: any;
+  @Input() bestBlockchainStateFlax: any;
+  @Input() bestBlockchainStateSpare: any;
 
   constructor() { }
 
@@ -76,14 +78,26 @@ export class HarvesterComponent implements OnInit {
   get lastUpdatedState() {
     return getStateForLastUpdated(this.harvester.lastUpdate);
   }
+
+  get selectBestBlockchainState() {
+    if (this.satelliteCoin == 'Flax') {
+    return this.bestBlockchainStateFlax;
+    }
+    if (this.satelliteCoin == 'Spare') {
+      return this.bestBlockchainStateSpare;
+    }
+    return this.bestBlockchainState;
+  }
+
   get estimatedTimeToWinInHours() {
-    if (!this.bestBlockchainState) {
+    if (!this.selectBestBlockchainState) {
       return 'N/A';
     }
     if (this.capacityInGib.isZero()) {
       return 'N/A';
     }
-    const networkSpace = new Capacity(this.bestBlockchainState.spaceInGib).capacityInGib;
+    const networkSpace = new Capacity(this.selectBestBlockchainState.spaceInGib).capacityInGib;
+    // console.log(networkSpace);
     const capacity = this.capacityInGib;
     const chanceToWinABlock = capacity.dividedBy(networkSpace);
     const avgBlocksTillWin = new BigNumber(1).dividedBy(chanceToWinABlock);

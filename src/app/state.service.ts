@@ -17,6 +17,7 @@ export class StateService {
   public chiaStats: any;
   public stateUpdated = new Subject();
   public bestBlockchainState: any = null;
+  public bestBlockchainStateFlax: any = null;
   public bestBlockchainStateSpare: any = null;
   private updateSatellitesInterval: any;
   private updateRatesInterval: any;
@@ -279,6 +280,7 @@ export class StateService {
 
   updateFromSatellites() {
     this.bestBlockchainState = this.getBestBlockchainState();
+    this.bestBlockchainStateFlax = this.getBestBlockchainStateFlax();
     this.bestBlockchainStateSpare = this.getBestBlockchainStateSpare();
     this.updateStatsFromSatellites('wallets', 'wallet');
     this.updateStatsFromSatellites('fullNodes', 'fullNode');
