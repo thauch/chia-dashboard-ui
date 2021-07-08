@@ -17,7 +17,7 @@ export class FullNodeComponent implements OnInit {
   }
 
   get fullNodeConnectionCount() {
-    if (this.fullNode.fullNodeConnectionCount != undefined) {
+    if (this.fullNode.fullNodeConnectionsCount != undefined) {
     return this.fullNode.fullNodeConnectionsCount !== undefined ? this.fullNode.fullNodeConnectionsCount : this.fullNode.fullNodeConnections.length;
     }
   }
