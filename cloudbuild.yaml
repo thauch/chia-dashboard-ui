@@ -1,0 +1,10 @@
+
+steps:
+  # Install dependencies
+  - name: node
+    entrypoint: yarn
+    args: ['install']
+  # Run custom commands
+  - name: node
+    entrypoint: yarn
+    args: ['run', 'build']
