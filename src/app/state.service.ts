@@ -18,6 +18,7 @@ export class StateService {
   public stateUpdated = new Subject();
   public bestBlockchainState: any = null;
   public bestBlockchainStateFlax: any = null;
+  public bestBlockchainStateChaingreen: any = null;
   public bestBlockchainStateSpare: any = null;
   private updateSatellitesInterval: any;
   private updateRatesInterval: any;
@@ -186,7 +187,7 @@ export class StateService {
     }
     this.stateUpdated.next();
   }
-  
+
   async updateSharedSatellites() {
     try {
       this.satellites = await this.apiService.getSharedSatellites();
@@ -245,6 +246,29 @@ export class StateService {
     }, null);
   }
 
+  getBestBlockchainStateChaingreen() {
+    let list = [];
+    this.satellites.map((satellite) => {
+      if (satellite.coin == 'Chaingreen') {
+        list.push(satellite);
+      }
+    });
+    return list.reduce((bestBlockchainState, satellite) => {
+      if (!satellite.services
+        || !satellite.services.fullNode
+        || !satellite.services.fullNode.stats
+        || !satellite.services.fullNode.stats.blockchainState
+      ) {
+        return bestBlockchainState;
+      }
+      if (!bestBlockchainState || satellite.services.fullNode.stats.blockchainState.syncStatus.syncedHeight > bestBlockchainState.syncStatus.syncedHeight) {
+        return satellite.services.fullNode.stats.blockchainState;
+      }
+
+      return bestBlockchainState;
+    }, null);
+  }
+
   getBestBlockchainStateSpare() {
     let list = [];
     this.satellites.map((satellite) => {
@@ -281,6 +305,7 @@ export class StateService {
   updateFromSatellites() {
     this.bestBlockchainState = this.getBestBlockchainState();
     this.bestBlockchainStateFlax = this.getBestBlockchainStateFlax();
+    this.bestBlockchainStateChaingreen = this.getBestBlockchainStateChaingreen();
     this.bestBlockchainStateSpare = this.getBestBlockchainStateSpare();
     this.updateStatsFromSatellites('wallets', 'wallet');
     this.updateStatsFromSatellites('fullNodes', 'fullNode');

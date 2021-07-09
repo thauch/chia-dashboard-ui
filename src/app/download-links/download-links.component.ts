@@ -20,6 +20,9 @@ export class DownloadLinksComponent implements OnInit {
   get binaryDownloadUrlFlax() {
     return 'https://github.com/thauch/flax-dashboard-satellite/releases/latest';
   }
+  get binaryDownloadUrlChaingreen() {
+    return 'https://github.com/thauch/chaingreen-dashboard-satellite/releases/latest';
+  }
   get binaryDownloadUrlSpare() {
     return 'https://github.com/thauch/spare-dashboard-satellite/releases/latest';
   }
