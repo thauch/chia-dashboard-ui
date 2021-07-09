@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chia
+    type: web
+  name: web
+  namespace: chia
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chia
+  strategy:
+    rollingUpdate:
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: chia
+    spec:
+      containers:
+        - name: chia
+          image: "gcr.io/linux-273111/github.com/torvaldz/chia-dashboard-ui@sha256"
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4200
+              name: http
+              protocol: TCP
