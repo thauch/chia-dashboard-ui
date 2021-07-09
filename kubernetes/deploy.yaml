@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: chia
-          image: "gcr.io/linux-273111/github.com/torvaldz/chia-dashboard-ui@sha256"
+          image: "gcr.io/linux-273111/github.com/torvaldz/chia-dashboard-ui"
           imagePullPolicy: Always
           ports:
             - containerPort: 4200
