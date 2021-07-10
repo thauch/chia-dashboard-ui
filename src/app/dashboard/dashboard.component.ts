@@ -66,6 +66,20 @@ export class DashboardComponent implements OnInit {
     return orderArr;
   }
 
+  visibleGroups() {
+    const user = this.stateService.user;
+    if (!user.visibleGroups || user.visibleGroups.length == 0) {
+      return {
+        "Plotters": true,
+        "Harvesters": true,
+        "Farmers": true,
+        "Full Nodes": true,
+        "Wallets": true
+      }
+    };
+    return user.visibleGroups;
+  }
+
   get rate() {
     return this.stateService.getRateForSelectedCurrency();
   }
