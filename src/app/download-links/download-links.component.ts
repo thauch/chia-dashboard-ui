@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { faDownload } from '@fortawesome/free-solid-svg-icons';
+import { faDownload, faCopy } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-download-links',
@@ -8,6 +8,7 @@ import { faDownload } from '@fortawesome/free-solid-svg-icons';
 })
 export class DownloadLinksComponent implements OnInit {
   public faDownload = faDownload;
+  public faCopy = faCopy;
 
   constructor() { }
 
