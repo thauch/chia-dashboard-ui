@@ -11,14 +11,14 @@
   <div class="collapse navbar-collapse" [ngbCollapse]="isMenuCollapsed">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item" *ngIf="user">
-        <a class="nav-link">
+        <a class="nav-link px-1">
           <button type="button" class="btn btn-outline-success" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" (click)="onTabButtonClick()">
             Dashboard
           </button>
         </a>
       </li>
       <li class="nav-item" *ngIf="user">
-        <a class="nav-link">
+        <a class="nav-link px-1">
           <div ngbDropdown class="d-inline-block">
             <button type="button" class="btn btn-outline-success" id="plotterDropDown" ngbDropdownToggle>
               Plotters
@@ -32,49 +32,47 @@
         </a>
       </li>
       <li class="nav-item" *ngIf="user">
-        <a class="nav-link">
+        <a class="nav-link px-1">
           <button type="button" class="btn btn-outline-success" routerLink="/harvesters/summary" routerLinkActive="active" (click)="onTabButtonClick()">
             Harvesters
           </button>
         </a>
       </li>
       <li class="nav-item" *ngIf="user">
-        <a class="nav-link">
+        <a class="nav-link px-1">
           <button type="button" class="btn btn-outline-success" routerLink="/farmers/summary" routerLinkActive="active" (click)="onTabButtonClick()">
             Farmers
           </button>
         </a>
       </li>
       <li class="nav-item"  *ngIf="user">
-        <a class="nav-link">
+        <a class="nav-link px-1">
           <button type="button" class="btn btn-outline-info" (click)="openAddSatelliteModal()">
             + Add 
           </button>
         </a>
       </li>
     </ul>
-    <div *ngIf="isAuthenticated" style="padding-right: 40px; padding-top: 8px; padding-bottom: 8px">
-
-      <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey)" style="margin-top: 10px;">
+    <div *ngIf="isAuthenticated">
+      <div class="coin-select-wrapper px-1" *ngIf="(isAuthenticated || hasShareKey)">
         <select class="custom-select currency-select" [ngModel]="selectedDashboard" (ngModelChange)="setSelectedDashboard($event)">
           <option *ngFor="let type of dashboardTypes" [ngValue]="type" class="currency-select-option">{{type}}</option>
         </select>
       </div>
 
-      <div class="currency-select-wrapper" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0" style="margin-top: 10px; margin-left: 10px;">
-        <select class="custom-select currency-select" [ngModel]="selectedCurrency" (ngModelChange)="setSelectedCurrency($event)">
-          <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
-        </select>
-      </div>
-
-      <div ngbDropdown class="d-inline-block" style="margin-left: 10px;">
+      <div ngbDropdown class="d-inline-block px-1">
         <button class="btn btn-outline-info" id="userDropdown" ngbDropdownToggle>
           <span *ngIf="user && user.avatarUrl">
-            <img src="{{user.avatarUrl}}" width="22" height="22" style="border-radius: 100%">
+            <img src="{{user.avatarUrl}}" width="20" height="20" style="border-radius: 100%">
             <span *ngIf="displayName() != null" style="margin-left: 8px">{{displayName()}}</span>
           </span>
         </button>
         <div ngbDropdownMenu aria-labelledby="userDropdown">
+          <div class="ngbDropdownItem currency-select-wrapper px-3" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0">
+            <select class="custom-select currency-select" [ngModel]="selectedCurrency" (ngModelChange)="setSelectedCurrency($event)">
+              <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
+            </select>
+          </div>
           <button ngbDropdownItem routerLink="/satellites" routerLinkActive="active" (click)="onTabButtonClick()">
             Satellites
           </button>
@@ -87,9 +85,13 @@
           <button ngbDropdownItem (click)="logout()">
             Logout
           </button>
-
         </div>
       </div>
+      <span class="px-1">
+        <a class="btn btn-light px-1" href="https://www.paypal.com/donate/?business=VGRZESXG5Z4BQ&currency_code=USD" role="button" target="_blank" (click)="isMenuCollapsed = true">
+          Donate <fa-icon [icon]="faHeart" class="fa" style="color: rgb(219, 97, 162)"></fa-icon>
+        </a>
+      </span>
     </div>
     
     <div *ngIf="!isAuthenticated" style="padding-right: 8px; padding-top: 8px; padding-bottom: 8px">
