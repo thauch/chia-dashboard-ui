@@ -69,7 +69,7 @@
           </span>
         </button>
         <div ngbDropdownMenu aria-labelledby="userDropdown">
-          <div class="ngbDropdownItem currency-select-wrapper px-3" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0">
+          <div class="ngbDropdownItem currency-select-wrapper px-3 pb-2" *ngIf="(isAuthenticated || hasShareKey) && currencies.length > 0">
             <select class="custom-select currency-select" [ngModel]="selectedCurrency" (ngModelChange)="setSelectedCurrency($event)">
               <option *ngFor="let currency of currencies" [ngValue]="currency" class="currency-select-option">{{ currency.toUpperCase() }}</option>
             </select>
@@ -77,6 +77,9 @@
           <button ngbDropdownItem routerLink="/satellites" routerLinkActive="active" (click)="onTabButtonClick()">
             Satellites
           </button>
+          <button ngbDropdownItem routerLink="downloads" routerLinkActive="active">
+            Downloads
+          </button> 
           <button ngbDropdownItem routerLink="account/dashboardsettings" routerLinkActive="active">
             Account Settings
           </button>
