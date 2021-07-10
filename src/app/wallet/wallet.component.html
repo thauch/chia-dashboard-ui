@@ -11,7 +11,7 @@
     <h6 class="card-subtitle mb-2 text-muted">Synced to {{syncedHeight}}</h6>
     <div *ngFor="let wallet of wallets; trackBy: trackBy" class="d-flex justify-content-between">
       <div class="card-font-size">{{wallet.name}}</div>
-      <div class="card-font-size" [class.font-weight-bold]="wallets.length === 1" placement="bottom" ngbTooltip="{{getBalanceFiat(wallet)}}">
+      <div class="card-font-size" [class.font-weight-bold]="wallets.length === 1" placement="bottom" ngbTooltip="{{getBalanceFiat(wallet)}}" [disableTooltip]="satelliteCoin != 'Chia'">
         {{getRoundedBalance(wallet.balance.total)}} 
         <span *ngIf="satelliteCoin === 'Chia'">XCH</span>
         <span *ngIf="satelliteCoin === 'Flax'">XFX</span>
@@ -21,7 +21,7 @@
     <hr *ngIf="wallets.length > 1">
     <div *ngIf="wallets.length > 1" class="d-flex justify-content-between">
       <div class="card-font-size font-weight-bold">Total</div>
-      <div class="card-font-size font-weight-bold" placement="bottom" ngbTooltip="{{totalBalanceFiat}}">
+      <div class="card-font-size font-weight-bold" placement="bottom" ngbTooltip="{{totalBalanceFiat}}" [disableTooltip]="satelliteCoin != 'Chia'">
         {{totalBalanceRounded}} 
         <span *ngIf="satelliteCoin === 'Chia'">XCH</span>
         <span *ngIf="satelliteCoin === 'Flax'">XFX</span>
