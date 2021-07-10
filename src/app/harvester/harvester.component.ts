@@ -22,7 +22,9 @@ export class HarvesterComponent implements OnInit {
   }
 
   get farmerConnectionsCount() {
-    return this.harvester.farmerConnectionsCount !== undefined ? this.harvester.farmerConnectionsCount : this.harvester.farmerConnections.length;
+    if (this.harvester.farmerConnectionsCount != undefined) {
+      return this.harvester.farmerConnectionsCount !== undefined ? this.harvester.farmerConnectionsCount : this.harvester.farmerConnections.length;
+    }
   }
 
   get status() {
