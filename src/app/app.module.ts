@@ -53,6 +53,7 @@ import { FarmSummarySpareComponent } from './farm-summary-spare/farm-summary-spa
 import { WalletSummaryFlaxComponent } from './wallet-summary-flax/wallet-summary-flax.component';
 import { WalletSummaryChaingreenComponent } from './wallet-summary-chaingreen/wallet-summary-chaingreen.component';
 import { WalletSummarySpareComponent } from './wallet-summary-spare/wallet-summary-spare.component';
+import { DownloadsComponent } from './downloads/downloads.component';
 
 @NgModule({
   declarations: [
@@ -92,6 +93,7 @@ import { WalletSummarySpareComponent } from './wallet-summary-spare/wallet-summa
     WalletSummaryFlaxComponent,
     WalletSummaryChaingreenComponent,
     WalletSummarySpareComponent,
+    DownloadsComponent
   ],
   imports: [
     BrowserModule,

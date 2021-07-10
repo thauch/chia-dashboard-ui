@@ -12,6 +12,7 @@ import {AccountShareDashboardComponent} from './account-share-dashboard/account-
 import {SharedDashboardComponent} from './shared-dashboard/shared-dashboard.component';
 import { HarvestersComponent } from './harvesters/harvesters.component';
 import { AccountDashboardSettingsComponent } from './account-dashboard-settings/account-dashboard-settings.component';
+import { DownloadsComponent } from './downloads/downloads.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'spare', component: DashboardComponent, pathMatch: 'full' },
   { path: 'chaingreen', component: DashboardComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full', data: { titleSuffix: 'Login' } },
+  { path: 'downloads', component: DownloadsComponent, pathMatch: 'full', data: { titleSuffix: 'Downloads' } },
   { path: 'satellites', component: SatelliteListComponent, pathMatch: 'full', data: { titleSuffix: 'Satellites' } },
   { path: 'plotters/summary', component: PlottersComponent, pathMatch: 'full', data: { titleSuffix: 'Plotters Summary' } },
   { path: 'plotters/details', component: PlottersDetailsComponent, pathMatch: 'full', data: { titleSuffix: 'Plotters Details' } },
