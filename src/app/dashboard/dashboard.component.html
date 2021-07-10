@@ -14,6 +14,10 @@
   <app-download-links></app-download-links>
 </div>
 <div class="d-flex justify-content-center" style="padding-top: 2rem"
+  *ngIf="!isInitialLoading && selectedDashboard === 'Chaingreen' && satellitesFlaxCount === 0 && !shareKey">
+  <app-download-links></app-download-links>
+</div>
+<div class="d-flex justify-content-center" style="padding-top: 2rem"
   *ngIf="!isInitialLoading && selectedDashboard === 'Spare' && satellitesSpareCount === 0 && !shareKey">
   <app-download-links></app-download-links>
 </div>
@@ -40,6 +44,15 @@
       [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-6">
     </app-wallet-summary-flax>
   </div>
+  <div class="row" *ngIf="satellitesChaingreenCount > 0">
+    <app-farm-summary-chaingreen *ngIf="selectedDashboard === 'Chaingreen' || selectedDashboard === 'All'" [wallets]="wallets('Chaingreen')" [fullNodes]="fullNodes('Chaingreen')" [harvesters]="harvesters('Chaingreen')" [farmers]="farmers('Chaingreen')"
+      [bestBlockchainState]="bestBlockchainStateChaingreen" [rate]="rate" [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard"
+      class="p-1 col-12 col-md-6 col-lg-8 col-xl-8 col-xxl-18">
+    </app-farm-summary-chaingreen>
+    <app-wallet-summary-chaingreen *ngIf="selectedDashboard === 'Chaingreen' || selectedDashboard === 'All'" [wallets]="wallets('Chaingreen')" [bestBlockchainState]="bestBlockchainStateChaingreen" [rate]="rate"
+      [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-md-6 col-lg-4 col-xl-4 col-xxl-6">
+    </app-wallet-summary-chaingreen>
+  </div>
   <div class="row" *ngIf="satellitesSpareCount > 0">
     <app-farm-summary-spare *ngIf="selectedDashboard === 'Spare' || selectedDashboard === 'All'" [wallets]="wallets('Spare')" [fullNodes]="fullNodes('Spare')" [harvesters]="harvesters('Spare')" [farmers]="farmers('Spare')"
       [bestBlockchainState]="bestBlockchainStateSpare" [rate]="rate" [selectedCurrency]="selectedCurrency" [selectedDashboard]="selectedDashboard"
@@ -59,7 +72,7 @@
     <ng-container *ngIf="visibleGroups()['Harvesters']">
       <app-harvester [style.order]="satelliteOrder().harvester"
         *ngFor="let harvester of harvesters(selectedDashboard) | orderBy: 'satelliteName'; trackBy: trackBy" [harvester]="harvester"
-        [bestBlockchainState]="bestBlockchainState" [bestBlockchainStateFlax]="bestBlockchainStateFlax" [bestBlockchainStateSpare]="bestBlockchainStateSpare" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
+        [bestBlockchainState]="bestBlockchainState" [bestBlockchainStateFlax]="bestBlockchainStateFlax" [bestBlockchainStateChaingreen]="bestBlockchainStateChaingreen" [bestBlockchainStateSpare]="bestBlockchainStateSpare" [selectedDashboard]="selectedDashboard" class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
       </app-harvester>
     </ng-container>
     <ng-container *ngIf="visibleGroups()['Farmers']">

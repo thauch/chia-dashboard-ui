@@ -5,8 +5,9 @@
   <div class="card-body card-body-with-title">
     <h5 class="card-title">Status: <span [class]="colorClassForSyncStatus">{{status}}</span>
       <img *ngIf="satelliteCoin === 'Chia'" src="assets/chia_icon.png" height="20" class="float-right">
-      <img *ngIf="satelliteCoin === 'Flax'" src="assets/flax_icon.png" height="20" class="float-right"> 
-      <img *ngIf="satelliteCoin === 'Spare'" src="assets/spare_icon.png" height="20" class="float-right"> 
+      <img *ngIf="satelliteCoin === 'Flax'" src="assets/flax_icon.png" height="20" class="float-right">
+      <img *ngIf="satelliteCoin === 'Chaingreen'" src="assets/chaingreen_icon.png" height="20" class="float-right">
+      <img *ngIf="satelliteCoin === 'Spare'" src="assets/spare_icon.png" height="20" class="float-right">
     </h5>
     <h6 class="card-subtitle mb-2 text-muted">Synced to {{syncedHeight}}</h6>
     <div *ngFor="let wallet of wallets; trackBy: trackBy" class="d-flex justify-content-between">
@@ -15,6 +16,7 @@
         {{getRoundedBalance(wallet.balance.total)}} 
         <span *ngIf="satelliteCoin === 'Chia'">XCH</span>
         <span *ngIf="satelliteCoin === 'Flax'">XFX</span>
+        <span *ngIf="satelliteCoin === 'Chaingreen'">CGN</span>
         <span *ngIf="satelliteCoin === 'Spare'">SPARE</span>
       </div>
     </div>
@@ -25,6 +27,7 @@
         {{totalBalanceRounded}} 
         <span *ngIf="satelliteCoin === 'Chia'">XCH</span>
         <span *ngIf="satelliteCoin === 'Flax'">XFX</span>
+        <span *ngIf="satelliteCoin === 'Chaingreen'">CGN</span>
         <span *ngIf="satelliteCoin === 'Spare'">SPARE</span>
       </div>
     </div>

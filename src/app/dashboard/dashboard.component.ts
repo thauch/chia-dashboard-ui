@@ -30,6 +30,9 @@ export class DashboardComponent implements OnInit {
     if (this.router.url === '/flax') {
     this.stateService.setSelectedDashboard('Flax');
     }
+    if (this.router.url === '/chaingreen') {
+    this.stateService.setSelectedDashboard('Chaingreen');
+    }
     if (this.router.url === '/spare') {
       this.stateService.setSelectedDashboard('Spare');
     }
@@ -104,6 +107,10 @@ export class DashboardComponent implements OnInit {
     return this.stateService.bestBlockchainStateFlax;
   }
 
+  get bestBlockchainStateChaingreen() {
+    return this.stateService.bestBlockchainStateChaingreen;
+  }
+
   get bestBlockchainStateSpare() {
     return this.stateService.bestBlockchainStateSpare;
   }
@@ -126,6 +133,16 @@ export class DashboardComponent implements OnInit {
     let count = 0;
     this.stateService.satellites.map((satellite) => {
       if (satellite.coin == 'Flax') {
+        count += 1;
+      }
+    })
+    return count;
+  }
+
+  get satellitesChaingreenCount() {
+    let count = 0;
+    this.stateService.satellites.map((satellite) => {
+      if (satellite.coin == 'Chaingreen') {
         count += 1;
       }
     })

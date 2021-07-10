@@ -1,8 +1,9 @@
 <nav class="navbar navbar-expand-xl navbar-dark sticky-navbar">
   <a class="navbar-brand" href="/">
     <img *ngIf="selectedDashboard === 'Chia' || selectedDashboard === 'All'" src="assets/chia_logo.svg" height="32">
-      <img *ngIf="selectedDashboard === 'Flax'" src="assets/flax_logo.png" height="32" class> 
-      <img *ngIf="selectedDashboard === 'Spare'" src="assets/spare_logo.png" height="32"> 
+      <img *ngIf="selectedDashboard === 'Flax'" src="assets/flax_logo.png" height="32" class>
+      <img *ngIf="selectedDashboard === 'Chaingreen'" src="assets/chaingreen_logo.png" height="32" class>
+      <img *ngIf="selectedDashboard === 'Spare'" src="assets/spare_logo.png" height="32">
     <span style="margin-left: 10px; vertical-align: bottom;">Dashboard</span>
   </a>
   <button class="navbar-toggler" type="button" (click)="toggleMenuCollapse()">
@@ -48,7 +49,7 @@
       <li class="nav-item"  *ngIf="user">
         <a class="nav-link px-1">
           <button type="button" class="btn btn-outline-info" (click)="openAddSatelliteModal()">
-            + Add 
+            + Add
           </button>
         </a>
       </li>
@@ -93,7 +94,7 @@
         </a>
       </span>
     </div>
-    
+
     <div *ngIf="!isAuthenticated" style="padding-right: 8px; padding-top: 8px; padding-bottom: 8px">
       <button type="button" class="btn btn-dark" routerLink="/login" routerLinkActive="active" (click)="isMenuCollapsed = true">
         Login

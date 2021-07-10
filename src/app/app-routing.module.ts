@@ -17,6 +17,7 @@ const routes: Routes = [
   { path: '', component: DashboardComponent, pathMatch: 'full' },
   { path: 'flax', component: DashboardComponent, pathMatch: 'full' },
   { path: 'spare', component: DashboardComponent, pathMatch: 'full' },
+  { path: 'chaingreen', component: DashboardComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full', data: { titleSuffix: 'Login' } },
   { path: 'satellites', component: SatelliteListComponent, pathMatch: 'full', data: { titleSuffix: 'Satellites' } },
   { path: 'plotters/summary', component: PlottersComponent, pathMatch: 'full', data: { titleSuffix: 'Plotters Summary' } },

@@ -33,7 +33,7 @@ export class HeaderComponent {
   }
 
   get dashboardTypes() {
-    return ['Chia', 'Flax','Spare','All'];
+    return ['Chia', 'Flax','Spare','Chaingreen','All'];
   }
 
   setSelectedCurrency(currency) {
@@ -55,11 +55,11 @@ export class HeaderComponent {
   get isAuthenticated() {
     return this.apiService.isAuthenticated;
   }
-  
+
   get hasShareKey() {
     return !!this.apiService.shareKey;
   }
-  
+
   async logout() {
     await this.stateService.logout();
   }
