@@ -44,7 +44,7 @@ import { ChiaStatsComponent } from './chia-stats/chia-stats.component';
 import { PlottersComponent } from './plotters/plotters.component';
 import { PlottersDetailsComponent } from './plotters-details/plotters-details.component';
 import { HarvestersComponent } from './harvesters/harvesters.component';
-import { AccountDashboardOrderComponent } from './account-dashboard-order/account-dashboard-order.component';
+import { AccountDashboardSettingsComponent } from './account-dashboard-settings/account-dashboard-settings.component';
 import { SortablejsModule } from 'ngx-sortablejs';
 import { DataTablesModule } from "angular-datatables";
 import { FarmSummaryFlaxComponent } from './farm-summary-flax/farm-summary-flax.component';
@@ -83,7 +83,7 @@ import { WalletSummarySpareComponent } from './wallet-summary-spare/wallet-summa
     PlottersDetailsComponent,
     HarvestersComponent,
     FarmersComponent,
-    AccountDashboardOrderComponent,
+    AccountDashboardSettingsComponent,
     FarmSummaryFlaxComponent,
     FarmSummarySpareComponent,
     WalletSummaryFlaxComponent,
