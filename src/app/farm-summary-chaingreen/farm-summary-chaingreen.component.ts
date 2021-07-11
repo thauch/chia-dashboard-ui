@@ -167,16 +167,16 @@ export class FarmSummaryChaingreenComponent implements OnInit {
     }
 
     if (height < 3 * BLOCKS_PER_YEAR) {
-      return 2;
+      return 500;
     } else if (height < 6 * BLOCKS_PER_YEAR) {
-      return 1;
+      return 250;
     } else if (height < 9 * BLOCKS_PER_YEAR) {
-      return 0.5;
+      return 125;
     } else if (height < 12 * BLOCKS_PER_YEAR) {
-      return 0.25;
+      return 68;
     }
 
-    return 0.125;
+    return 34;
   }
 
   get lastHeightFarmedDuration() {
