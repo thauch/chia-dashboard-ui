@@ -12,6 +12,7 @@ import {ToastService} from '../toast.service';
 })
 export class PlotterComponent implements OnInit {
   @Input() satelliteId: any;
+  @Input() selectedDashboard: any;
   @Input() plotter: any;
   @Input() collapsed: any;
   isCollapsed: boolean;
@@ -35,6 +36,13 @@ export class PlotterComponent implements OnInit {
 
   get satelliteName() {
     return this.plotter.satelliteName;
+  }
+
+  get satelliteCoin() {
+    if (this.plotter.satelliteCoin == undefined) {
+      return 'Chia';
+    }
+    return this.plotter.satelliteCoin ;
   }
 
   get status() {

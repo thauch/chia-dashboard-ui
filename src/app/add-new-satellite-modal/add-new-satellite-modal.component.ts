@@ -15,6 +15,7 @@ export class AddNewSatelliteModalComponent {
   @ViewChild('addSatelliteModal') modal;
 
   public newSatelliteName = null;
+  public newSatelliteCoin = 'Select';
   public newSatellite = { apiKey: null };
   public isLoading = false;
   public faCircleNotch = faCircleNotch;
@@ -33,16 +34,17 @@ export class AddNewSatelliteModalComponent {
     }
     this.isLoading = true;
     try {
-      this.newSatellite = await this.apiService.createSatellite(this.newSatelliteName);
+      this.newSatellite = await this.apiService.createSatellite(this.newSatelliteName, this.newSatelliteCoin);
     } finally {
       this.isLoading = false;
     }
-    this.toastService.showSuccessToast(`New Satellite ${this.newSatelliteName} created`);
+    this.toastService.showSuccessToast(`New Satellite ${this.newSatelliteCoin} created`);
     await this.stateService.updateSatellites();
   }
 
   onModalClose() {
     this.newSatelliteName = null;
+    this.newSatelliteCoin = 'Select';
     this.newSatellite = { apiKey: null };
   }
 

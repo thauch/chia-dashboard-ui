@@ -27,6 +27,12 @@ export class WalletComponent implements OnInit {
     return this.wallet.satelliteName;
   }
 
+  get satelliteCoin() {
+    if (this.wallet.satelliteCoin == undefined) {
+      return 'Chia';
+    }
+    return this.wallet.satelliteCoin ;
+  }
   get status() {
     if (this.lastUpdatedState !== 0) {
       return 'Unknown';

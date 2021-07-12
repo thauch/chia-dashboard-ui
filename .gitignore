@@ -52,5 +52,4 @@ src/app/footer/footer.component.ts
 app/header/header.component.html
 app/header/header.component.scss
 app/header/header.component.ts
-app/config.ts
 src/app/config.ts

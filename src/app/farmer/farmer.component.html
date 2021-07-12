@@ -1,6 +1,10 @@
 <div class="card">
   <div class="card-header d-flex justify-content-between">
-    <h5>Farmer ({{satelliteName}})</h5>
+    <h5>Farmer ({{satelliteName}})
+      <img *ngIf="satelliteCoin === 'Chia'" src="assets/chia_icon.png" height="20" class="ml-1">
+      <img *ngIf="satelliteCoin === 'Flax'" src="assets/flax_icon.png" height="20" class="ml-1">
+      <img *ngIf="satelliteCoin === 'Chaingreen'" src="assets/chaingreen_icon.png" height="20" class="ml-1">
+      <img *ngIf="satelliteCoin === 'Spare'" src="assets/spare_icon.png" height="20" class="ml-1"></h5>
     <h5 [class]="colorClassForSyncStatus">{{status}}</h5>
   </div>
   <div class="card-body farmer-card">

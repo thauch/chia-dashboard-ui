@@ -4,12 +4,13 @@ import * as moment from 'moment';
 import {getStateForLastUpdated} from '../state-util';
 
 @Component({
-  selector: 'app-wallet-summary',
-  templateUrl: './wallet-summary.component.html',
-  styleUrls: ['./wallet-summary.component.scss']
+  selector: 'app-wallet-summary-chia',
+  templateUrl: './wallet-summary-chia.component.html',
+  styleUrls: ['./wallet-summary-chia.component.scss']
 })
-export class WalletSummaryComponent implements OnInit {
+export class WalletSummaryChiaComponent implements OnInit {
   @Input() wallets: any;
+  @Input() selectedDashboard: any;
   @Input() bestBlockchainState: any;
   @Input() rate: any;
   @Input() selectedCurrency: any;

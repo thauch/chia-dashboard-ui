@@ -2,6 +2,7 @@ import { Component, ViewChild} from '@angular/core';
 import {ApiService} from '../api.service';
 import {StateService} from '../state.service';
 import {AddNewSatelliteModalComponent} from '../add-new-satellite-modal/add-new-satellite-modal.component';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
   selector: 'app-header',
@@ -12,6 +13,7 @@ export class HeaderComponent {
   @ViewChild(AddNewSatelliteModalComponent) child;
 
   public isMenuCollapsed = true;
+  public faHeart = faHeart;
 
   constructor(
     private apiService: ApiService,
@@ -22,12 +24,24 @@ export class HeaderComponent {
     return this.stateService.selectedCurrency;
   }
 
+  get selectedDashboard() {
+    return this.stateService.selectedDashboard;
+  }
+
   get currencies() {
     return this.stateService.currencies;
   }
 
+  get dashboardTypes() {
+    return ['Chia', 'Flax','Spare','Chaingreen','All'];
+  }
+
   setSelectedCurrency(currency) {
     this.stateService.setSelectedCurrency(currency);
+  }
+
+  setSelectedDashboard(dashboard) {
+    this.stateService.setSelectedDashboard(dashboard);
   }
 
   toggleMenuCollapse() {
@@ -41,11 +55,11 @@ export class HeaderComponent {
   get isAuthenticated() {
     return this.apiService.isAuthenticated;
   }
-  
+
   get hasShareKey() {
     return !!this.apiService.shareKey;
   }
-  
+
   async logout() {
     await this.stateService.logout();
   }

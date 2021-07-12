@@ -12,7 +12,11 @@
     <app-harvester
       *ngFor="let harvester of harvesters | orderBy: 'satelliteName'; trackBy: trackBy"
       [harvester]="harvester"
-      [bestBlockchainState]="bestBlockchainState"
+      [bestBlockchainState]="bestBlockchainState" 
+      [bestBlockchainStateFlax]="bestBlockchainStateFlax" 
+      [bestBlockchainStateChaingreen]="bestBlockchainStateChaingreen" 
+      [bestBlockchainStateSpare]="bestBlockchainStateSpare" 
+      [selectedDashboard]="selectedDashboard" 
       class="p-1 col-12 col-sm-6 col-md-4 col-lg-4 col-xl-3 col-xxl-4">
     </app-harvester>
   </div>

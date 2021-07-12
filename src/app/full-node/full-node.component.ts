@@ -17,11 +17,20 @@ export class FullNodeComponent implements OnInit {
   }
 
   get fullNodeConnectionCount() {
+    if (this.fullNode.fullNodeConnectionsCount != undefined) {
     return this.fullNode.fullNodeConnectionsCount !== undefined ? this.fullNode.fullNodeConnectionsCount : this.fullNode.fullNodeConnections.length;
+    }
   }
 
   get satelliteName() {
     return this.fullNode.satelliteName;
+  }
+
+  get satelliteCoin() {
+    if (this.fullNode.satelliteCoin == undefined) {
+      return 'Chia';
+    }
+    return this.fullNode.satelliteCoin ;
   }
 
   get status() {

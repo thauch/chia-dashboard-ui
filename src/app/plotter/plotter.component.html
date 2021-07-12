@@ -1,10 +1,15 @@
 <div class="card">
   <div class="card-header">
-    <h5>Plotter ({{satelliteName}})<fa-icon [icon]="collapsedState ? faChevronDown : faChevronUp" class="float-right text-muted h6" (click)="toggleCollapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample"></fa-icon></h5>
+    <h5>Plotter ({{satelliteName}})
+      <fa-icon [icon]="collapsedState ? faChevronDown : faChevronUp" class="float-right text-muted h6" (click)="toggleCollapse()" [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample"></fa-icon></h5>
   </div>
   <div class="card-body card-body-with-title" [class.plotter-card]="runningJobsCount > 0">
     <h5 class="card-title">
       Status: <span [class]="colorClassForStatus">{{status}}</span>
+      <img *ngIf="satelliteCoin === 'Chia'" src="assets/chia_icon.png" height="20" class="float-right">
+      <img *ngIf="satelliteCoin === 'Flax'" src="assets/flax_icon.png" height="20" class="float-right">
+      <img *ngIf="satelliteCoin === 'Chaingreen'" src="assets/chaingreen_icon.png" height="20" class="float-right">
+      <img *ngIf="satelliteCoin === 'Spare'" src="assets/spare_icon.png" height="20" class="float-right">
     </h5>
     <h6 class="card-subtitle mb-2 text-muted d-flex justify-content-between">
       <span>

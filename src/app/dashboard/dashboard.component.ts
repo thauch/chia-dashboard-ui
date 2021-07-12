@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import {ApiService} from '../api.service';
 import {Router} from '@angular/router';
 import {StateService} from '../state.service';
@@ -12,17 +13,28 @@ import { faSatellite } from '@fortawesome/free-solid-svg-icons';
 export class DashboardComponent implements OnInit {
   public faSatellite = faSatellite;
   public shareKey: string = null;
+  coin: string;
 
   constructor(
     private apiService: ApiService,
     private router: Router,
     private stateService: StateService,
+    private route: ActivatedRoute
   ) {}
 
   async ngOnInit() {
     if (!this.apiService.isAuthenticated) {
       await this.router.navigate(['/login']);
       return;
+    }
+    if (this.router.url === '/flax') {
+    this.stateService.setSelectedDashboard('Flax');
+    }
+    if (this.router.url === '/chaingreen') {
+    this.stateService.setSelectedDashboard('Chaingreen');
+    }
+    if (this.router.url === '/spare') {
+      this.stateService.setSelectedDashboard('Spare');
     }
     await this.stateService.init();
   }
@@ -57,12 +69,30 @@ export class DashboardComponent implements OnInit {
     return orderArr;
   }
 
+  visibleGroups() {
+    const user = this.stateService.user;
+    if (!user.visibleGroups || user.visibleGroups.length == 0) {
+      return {
+        "Plotters": true,
+        "Harvesters": true,
+        "Farmers": true,
+        "Full Nodes": true,
+        "Wallets": true
+      }
+    };
+    return user.visibleGroups;
+  }
+
   get rate() {
     return this.stateService.getRateForSelectedCurrency();
   }
 
   get selectedCurrency() {
     return this.stateService.selectedCurrency;
+  }
+
+  get selectedDashboard() {
+    return this.stateService.selectedDashboard;
   }
 
   get isInitialLoading() {
@@ -73,28 +103,140 @@ export class DashboardComponent implements OnInit {
     return this.stateService.bestBlockchainState;
   }
 
+  get bestBlockchainStateFlax() {
+    return this.stateService.bestBlockchainStateFlax;
+  }
+
+  get bestBlockchainStateChaingreen() {
+    return this.stateService.bestBlockchainStateChaingreen;
+  }
+
+  get bestBlockchainStateSpare() {
+    return this.stateService.bestBlockchainStateSpare;
+  }
+
   get satellites() {
     return this.stateService.satellites;
   }
 
-  get wallets() {
-    return this.stateService.wallets;
+  get satellitesChiaCount() {
+    let count = 0;
+    this.stateService.satellites.map((satellite) => {
+      if (satellite.coin == 'Chia' || satellite.coin == undefined) {
+        count += 1;
+      }
+    })
+    return count;
   }
 
-  get fullNodes() {
-    return this.stateService.fullNodes;
+  get satellitesFlaxCount() {
+    let count = 0;
+    this.stateService.satellites.map((satellite) => {
+      if (satellite.coin == 'Flax') {
+        count += 1;
+      }
+    })
+    return count;
   }
 
-  get harvesters() {
-    return this.stateService.harvesters;
+  get satellitesChaingreenCount() {
+    let count = 0;
+    this.stateService.satellites.map((satellite) => {
+      if (satellite.coin == 'Chaingreen') {
+        count += 1;
+      }
+    })
+    return count;
   }
 
-  get farmers() {
-    return this.stateService.farmers;
+  get satellitesSpareCount() {
+    let count = 0;
+    this.stateService.satellites.map((satellite) => {
+      if (satellite.coin == 'Spare') {
+        count += 1;
+      }
+    })
+    return count;
+  }
+
+  wallets(coin) {
+    if (coin == 'All') {
+      return this.stateService.wallets;
+    }
+    let list = [];
+    this.stateService.wallets.map((wallet) => {
+      if (wallet.satelliteCoin == undefined && coin == 'Chia') {
+        list.push(wallet);
+      }
+      if (wallet.satelliteCoin == coin) {
+        list.push(wallet);
+      }
+    })
+    return list;
+  }
+
+  fullNodes(coin) {
+    if (coin == 'All') {
+      return this.stateService.fullNodes;
+    }
+    let list = [];
+    this.stateService.fullNodes.map((fullNode) => {
+      if (fullNode.satelliteCoin == undefined && coin == 'Chia') {
+        list.push(fullNode);
+      }
+      if (fullNode.satelliteCoin == coin) {
+        list.push(fullNode);
+      }
+    })
+    return list;
+  }
+
+  harvesters(coin) {
+    if (coin == 'All') {
+      return this.stateService.harvesters;
+    }
+    let list = [];
+    this.stateService.harvesters.map((harvester) => {
+      if (harvester.satelliteCoin == undefined && coin == 'Chia') {
+        list.push(harvester);
+      }
+      if (harvester.satelliteCoin == coin) {
+        list.push(harvester);
+      }
+    })
+    return list;
+  }
+
+  farmers(coin) {
+    if (coin == 'All') {
+      return this.stateService.farmers;
+    }
+    let list = [];
+    this.stateService.farmers.map((farmer) => {
+      if (farmer.satelliteCoin == undefined && coin == 'Chia') {
+        list.push(farmer);
+      }
+      if (farmer.satelliteCoin == coin) {
+        list.push(farmer);
+      }
+    })
+    return list;
   }
 
   get plotters() {
-    return this.stateService.plotters;
+    if (this.selectedDashboard == 'All') {
+      return this.stateService.plotters;
+    }
+    let list = [];
+    this.stateService.plotters.map((plotter) => {
+      if (plotter.satelliteCoin == undefined && this.selectedDashboard == 'Chia') {
+        list.push(plotter);
+      }
+      if (plotter.satelliteCoin == this.selectedDashboard) {
+        list.push(plotter);
+      }
+    })
+    return list;
   }
 
 }
