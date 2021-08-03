@@ -33,7 +33,7 @@ export class HeaderComponent {
   }
 
   get dashboardTypes() {
-    return ['Chia', 'Flax','Spare','Chaingreen','All'];
+    return ['Chia', 'Flax','Spare','Chaingreen','Silicoin','All'];
   }
 
   setSelectedCurrency(currency) {

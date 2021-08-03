@@ -8,6 +8,7 @@
       <img *ngIf="satelliteCoin === 'Flax'" src="assets/flax_icon.png" height="20" class="float-right">
       <img *ngIf="satelliteCoin === 'Chaingreen'" src="assets/chaingreen_icon.png" height="20" class="float-right">
       <img *ngIf="satelliteCoin === 'Spare'" src="assets/spare_icon.png" height="20" class="float-right">
+      <img *ngIf="satelliteCoin === 'Silicoin'" src="assets/silicoin_icon.png" height="20" class="float-right">
     </h5>
     <h6 class="card-subtitle mb-2 text-muted">Synced to {{syncedHeight}}</h6>
     <div *ngFor="let wallet of wallets; trackBy: trackBy" class="d-flex justify-content-between">
@@ -18,6 +19,7 @@
         <span *ngIf="satelliteCoin === 'Flax'">XFX</span>
         <span *ngIf="satelliteCoin === 'Chaingreen'">CGN</span>
         <span *ngIf="satelliteCoin === 'Spare'">SPARE</span>
+        <span *ngIf="satelliteCoin === 'Silicoin'">SIT</span>
       </div>
     </div>
     <hr *ngIf="wallets.length > 1">
@@ -29,6 +31,7 @@
         <span *ngIf="satelliteCoin === 'Flax'">XFX</span>
         <span *ngIf="satelliteCoin === 'Chaingreen'">CGN</span>
         <span *ngIf="satelliteCoin === 'Spare'">SPARE</span>
+        <span *ngIf="satelliteCoin === 'Silicoin'">SIT</span>
       </div>
     </div>
   </div>

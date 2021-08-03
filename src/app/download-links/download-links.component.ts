@@ -27,4 +27,7 @@ export class DownloadLinksComponent implements OnInit {
   get binaryDownloadUrlSpare() {
     return 'https://github.com/thauch/spare-dashboard-satellite/releases/latest';
   }
+  get binaryDownloadUrlSilicoin() {
+    return 'https://github.com/MinerGreggy/silicoin-dashboard-satellite/releases/latest';
+  }
 }

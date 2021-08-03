@@ -15,6 +15,7 @@ export class HarvesterComponent implements OnInit {
   @Input() bestBlockchainState: any;
   @Input() bestBlockchainStateFlax: any;
   @Input() bestBlockchainStateChaingreen: any;
+  @Input() bestBlockchainStateSilicoin: any;
   @Input() bestBlockchainStateSpare: any;
 
   constructor() { }
@@ -91,6 +92,9 @@ export class HarvesterComponent implements OnInit {
     }
     if (this.satelliteCoin == 'Spare') {
       return this.bestBlockchainStateSpare;
+    }
+    if (this.satelliteCoin == 'Silicoin') {
+    return this.bestBlockchainStateSilicoin;
     }
     return this.bestBlockchainState;
   }

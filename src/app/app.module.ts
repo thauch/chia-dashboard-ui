@@ -50,9 +50,11 @@ import { DataTablesModule } from "angular-datatables";
 import { FarmSummaryFlaxComponent } from './farm-summary-flax/farm-summary-flax.component';
 import { FarmSummaryChaingreenComponent } from './farm-summary-chaingreen/farm-summary-chaingreen.component';
 import { FarmSummarySpareComponent } from './farm-summary-spare/farm-summary-spare.component';
+import { FarmSummarySilicoinComponent } from './farm-summary-silicoin/farm-summary-silicoin.component';
 import { WalletSummaryFlaxComponent } from './wallet-summary-flax/wallet-summary-flax.component';
 import { WalletSummaryChaingreenComponent } from './wallet-summary-chaingreen/wallet-summary-chaingreen.component';
 import { WalletSummarySpareComponent } from './wallet-summary-spare/wallet-summary-spare.component';
+import { WalletSummarySilicoinComponent } from './wallet-summary-silicoin/wallet-summary-silicoin.component';
 import { DownloadsComponent } from './downloads/downloads.component';
 
 @NgModule({
@@ -90,9 +92,11 @@ import { DownloadsComponent } from './downloads/downloads.component';
     FarmSummaryFlaxComponent,
     FarmSummaryChaingreenComponent,
     FarmSummarySpareComponent,
+    FarmSummarySilicoinComponent,
     WalletSummaryFlaxComponent,
     WalletSummaryChaingreenComponent,
     WalletSummarySpareComponent,
+    WalletSummarySilicoinComponent,
     DownloadsComponent
   ],
   imports: [

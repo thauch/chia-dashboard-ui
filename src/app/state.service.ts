@@ -20,6 +20,7 @@ export class StateService {
   public bestBlockchainStateFlax: any = null;
   public bestBlockchainStateChaingreen: any = null;
   public bestBlockchainStateSpare: any = null;
+  public bestBlockchainStateSilicoin: any = null;
   private updateSatellitesInterval: any;
   private updateRatesInterval: any;
   public isInitialLoading: boolean = true;
@@ -292,6 +293,28 @@ export class StateService {
     }, null);
   }
 
+  getBestBlockchainStateSilicoin() {
+    let list = [];
+    this.satellites.map((satellite) => {
+      if (satellite.coin == 'Silicoin') {
+        list.push(satellite);
+      }
+    });
+    return list.reduce((bestBlockchainState, satellite) => {
+      if (!satellite.services
+        || !satellite.services.fullNode
+        || !satellite.services.fullNode.stats
+        || !satellite.services.fullNode.stats.blockchainState
+      ) {
+        return bestBlockchainState;
+      }
+      if (!bestBlockchainState || satellite.services.fullNode.stats.blockchainState.syncStatus.syncedHeight > bestBlockchainState.syncStatus.syncedHeight) {
+        return satellite.services.fullNode.stats.blockchainState;
+      }
+      return bestBlockchainState;
+    }, null);
+  }
+
   async logout() {
     this.user = null;
     this.satellites = [];
@@ -307,6 +330,7 @@ export class StateService {
     this.bestBlockchainStateFlax = this.getBestBlockchainStateFlax();
     this.bestBlockchainStateChaingreen = this.getBestBlockchainStateChaingreen();
     this.bestBlockchainStateSpare = this.getBestBlockchainStateSpare();
+    this.bestBlockchainStateSilicoin = this.getBestBlockchainStateSilicoin();
     this.updateStatsFromSatellites('wallets', 'wallet');
     this.updateStatsFromSatellites('fullNodes', 'fullNode');
     this.updateStatsFromSatellites('harvesters', 'harvester');

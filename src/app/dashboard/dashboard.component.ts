@@ -36,6 +36,9 @@ export class DashboardComponent implements OnInit {
     if (this.router.url === '/spare') {
       this.stateService.setSelectedDashboard('Spare');
     }
+    if (this.router.url === '/silicoin') {
+      this.stateService.setSelectedDashboard('Silicoin');
+    }
     await this.stateService.init();
   }
 
@@ -115,6 +118,10 @@ export class DashboardComponent implements OnInit {
     return this.stateService.bestBlockchainStateSpare;
   }
 
+  get bestBlockchainStateSilicoin() {
+    return this.stateService.bestBlockchainStateSilicoin;
+  }
+
   get satellites() {
     return this.stateService.satellites;
   }
@@ -153,6 +160,16 @@ export class DashboardComponent implements OnInit {
     let count = 0;
     this.stateService.satellites.map((satellite) => {
       if (satellite.coin == 'Spare') {
+        count += 1;
+      }
+    })
+    return count;
+  }
+
+  get satellitesSilicoinCount() {
+    let count = 0;
+    this.stateService.satellites.map((satellite) => {
+      if (satellite.coin == 'Silicoin') {
         count += 1;
       }
     })

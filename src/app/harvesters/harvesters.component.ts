@@ -55,4 +55,7 @@ export class HarvestersComponent implements OnInit {
     return this.stateService.bestBlockchainStateSpare;
   }
 
+  get bestBlockchainStateSilicoin() {
+    return this.stateService.bestBlockchainStateSilicoin;
+  }
 }
