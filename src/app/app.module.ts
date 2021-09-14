@@ -54,6 +54,7 @@ import { WalletSummaryFlaxComponent } from './wallet-summary-flax/wallet-summary
 import { WalletSummaryChaingreenComponent } from './wallet-summary-chaingreen/wallet-summary-chaingreen.component';
 import { WalletSummarySpareComponent } from './wallet-summary-spare/wallet-summary-spare.component';
 import { DownloadsComponent } from './downloads/downloads.component';
+import { AccountNotificationSettingsComponent } from './account-notification-settings/account-notification-settings.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { DownloadsComponent } from './downloads/downloads.component';
     WalletSummaryFlaxComponent,
     WalletSummaryChaingreenComponent,
     WalletSummarySpareComponent,
-    DownloadsComponent
+    DownloadsComponent,
+    AccountNotificationSettingsComponent
   ],
   imports: [
     BrowserModule,
