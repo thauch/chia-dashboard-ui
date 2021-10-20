@@ -30,6 +30,13 @@
     </div>
   </a>
 </div>
+<div class="col-11 col-md-6 col-lg-5 col-xl-5 px-1 mb-1">\
+  <a href="{{binaryDownloadUrlSilicoin}}" target="_blank" style="text-decoration: none;">\
+    <div class="install-box download-button">\
+      <fa-icon [icon]="faDownload" class="fa" style="font-size: 18px"></fa-icon>&nbsp;&nbsp;Download the latest <br>Silicoin-Dashboard-Satellite\
+    </div>\
+  </a>\
+</div>
 
 <div class="row justify-content-center mx-0" style="margin-top: 1em">
   <div class="col-11 col-md-8 col-lg-6 col-xl-5 mx-1 mb-1 install-box">
@@ -80,6 +87,20 @@
       ngbTooltip="Copy"
       ngxClipboard
       [cbContent]="'npm install --global spare-dashboard-satellite'"
+      style="cursor: pointer">
+      <fa-icon [icon]="faCopy"></fa-icon>
+    </span>
+  </div>
+</div>
+  <div class="col-11 col-md-8 col-lg-6 col-xl-5 mx-1 mb-1 install-box">
+    <h5>Silicoin-Dashboard-Satellite</h5>
+    Install using npm:<br>
+    <code>npm install --global silicoin-dashboard-satellite</code>
+    <span
+      class="px-2"
+      ngbTooltip="Copy"
+      ngxClipboard
+      [cbContent]="'npm install --global silicoin-dashboard-satellite'"
       style="cursor: pointer">
       <fa-icon [icon]="faCopy"></fa-icon>
     </span>

@@ -15,6 +15,7 @@ export class HarvesterComponent implements OnInit {
   @Input() bestBlockchainState: any;
   @Input() bestBlockchainStateFlax: any;
   @Input() bestBlockchainStateChaingreen: any;
+  @Input() bestBlockchainStateSilicoin: any;
   @Input() bestBlockchainStateSpare: any;
 
   constructor() { }
@@ -92,6 +93,9 @@ export class HarvesterComponent implements OnInit {
     if (this.satelliteCoin == 'Spare') {
       return this.bestBlockchainStateSpare;
     }
+    if (this.satelliteCoin == 'Silicoin') {
+    return this.bestBlockchainStateSilicoin;
+    }
     return this.bestBlockchainState;
   }
 
@@ -112,5 +116,27 @@ export class HarvesterComponent implements OnInit {
     const avgTimeToWinInMinutes = new BigNumber(24 * 60).dividedBy(blockWinsPerDay);
 
     return `≈ ${moment.duration(avgTimeToWinInMinutes, 'minutes').humanize()}`;
+  }
+
+  get ogPlots() {
+    return this.harvester.ogPlots;
+  }
+
+  get nftPlots() {
+    return this.harvester.nftPlots;
+  }
+
+  get plotCountString() {
+    if (!this.ogPlots && !this.nftPlots) {
+      return `${this.plotCount} Plots`;
+    }
+    if (this.ogPlots && this.ogPlots.count === 0) {
+      return `${this.plotCount} Plots (NFT)`;
+    }
+    if (this.nftPlots && this.nftPlots.count === 0) {
+      return `${this.plotCount} Plots (OG)`;
+    }
+
+    return `${this.plotCount} Plots (OG: ${this.ogPlots.count} | NFT: ${this.nftPlots.const})`;
   }
 }

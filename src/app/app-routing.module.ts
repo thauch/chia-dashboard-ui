@@ -20,6 +20,7 @@ const routes: Routes = [
   { path: 'flax', component: DashboardComponent, pathMatch: 'full' },
   { path: 'spare', component: DashboardComponent, pathMatch: 'full' },
   { path: 'chaingreen', component: DashboardComponent, pathMatch: 'full' },
+  { path: 'silicoin', component: DashboardComponent, pathMatch: 'full' },
   { path: 'login', component: LoginComponent, pathMatch: 'full', data: { titleSuffix: 'Login' } },
   { path: 'downloads', component: DownloadsComponent, pathMatch: 'full', data: { titleSuffix: 'Downloads' } },
   { path: 'satellites', component: SatelliteListComponent, pathMatch: 'full', data: { titleSuffix: 'Satellites' } },
