@@ -22,8 +22,8 @@
         <h5 class="card-title text-center">Show/Hide Groups</h5>
         <div class="text-center" style="padding-bottom: 0.5rem">(click to toggle)</div>
         <div *ngFor="let group of visibleGroups | keyvalue" class="d-flex justify-content-between mt-1">
-          <span class="h5">{{group.key}}</span>
-          <button (click)="changeVisibility(group)" class="btn btn-dark" placement="bottom">
+          <span class="h6">{{group.key}}</span>
+          <button (click)="changeVisibility(group)" class="btn btn-dark h6 m-0" placement="bottom">
             <fa-icon [icon]="group.value ? faEye : faEyeSlash" [class.hidden]="group.value == false" class="fa toggle-hidden-icon"></fa-icon>
             {{group.value ? 'Visible' : 'Hidden'}}
           </button>

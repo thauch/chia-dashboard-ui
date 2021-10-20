@@ -1,11 +1,11 @@
 import {Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import * as moment from 'moment';
-import { faTrash, faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faTrash, faEyeSlash, faEye, faBell, faBellSlash } from "@fortawesome/free-solid-svg-icons";
 import {FormControl} from '@angular/forms';
 import {ApiService} from '../api.service';
 import {ToastService} from '../toast.service';
 import {StateService} from '../state.service';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal} from '@ng-bootstrap/ng-bootstrap';
 import { faCopy } from '@fortawesome/free-regular-svg-icons';
 
 @Component({
@@ -22,6 +22,8 @@ export class SatelliteComponent implements OnInit {
   public faEyeSlash = faEyeSlash;
   public faCopy = faCopy;
   public faEye = faEye;
+  public faBell = faBell;
+  public faBellSlash = faBellSlash;
   public nameControl: FormControl;
   
 
@@ -51,6 +53,14 @@ export class SatelliteComponent implements OnInit {
     const newHiddenValue = !this.satellite.hidden;
     this.satellite.hidden = newHiddenValue;
     await this.apiService.updateSatellite({ id: this.satellite._id, data: { hidden: newHiddenValue } });
+    this.toastService.showSuccessToast(`Satellite ${this.satellite.name} updated`);
+    await this.stateService.updateSatellites();
+  }
+
+  async toggleNotifications() {
+    const newNotificationValue = !this.satellite.notifications;
+    this.satellite.notifcations = newNotificationValue;
+    await this.apiService.updateSatellite({ id: this.satellite._id, data: { notifications: newNotificationValue } });
     this.toastService.showSuccessToast(`Satellite ${this.satellite.name} updated`);
     await this.stateService.updateSatellites();
   }

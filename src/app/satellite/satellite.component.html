@@ -18,11 +18,12 @@
     ></fa-icon>
   </div>
   <div class="card-body">
+    <div>
     <button
       (click)="toggleHidden()"
       class="btn btn-dark"
       placement="bottom"
-      ngbTooltip="The Satellite is currently {{satellite.hidden ? 'hidden' : 'shown'}} in the dashboard"
+      ngbTooltip="The Satellite is currently {{satellite.hidden ? 'hidden' : 'shown'}} in the dashboard."
     >
       <fa-icon
         [icon]="satellite.hidden ? faEyeSlash : faEye"
@@ -31,7 +32,23 @@
       ></fa-icon>
       {{satellite.hidden ? 'Hidden' : 'Visible'}}
     </button>
-    <div style="margin-top: 5px">
+  </div>
+    <div class="mt-1">
+    <button
+      (click)="toggleNotifications()"
+      class="btn btn-dark"
+      placement="bottom"
+      ngbTooltip="Notifications for this satellite are currently {{satellite.notifications ? 'enabled' : 'disabled'}}."
+    >
+      <fa-icon
+        [icon]="satellite.notifications ? faBell : faBellSlash"
+        [class.hidden]="!satellite.notifications"
+        class="fa toggle-hidden-icon"
+      ></fa-icon>
+      {{satellite.notifications ? 'Notifications On' : 'Notifications Off'}}
+    </button>
+  </div>
+    <div class="mt-1">
       <button (click)="open(keyModal)" class="btn btn-dark">Show API Key</button>
     </div>
   </div>

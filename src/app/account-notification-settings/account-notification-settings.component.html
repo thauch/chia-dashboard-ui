@@ -1,0 +1,97 @@
+<div class="d-flex justify-content-center" style="padding-top: 1rem" *ngIf="isInitialLoading">
+  <app-loading-state></app-loading-state>
+</div>
+<div *ngIf="!isInitialLoading" class="row d-flex justify-content-center mt-2">
+    <div class="card col-11">
+      
+      <div class="card-body">
+        <h5 class="card-title text-center">Notification Settings</h5>
+        <div class="text-center" style="padding-bottom: 0.5rem">(click to toggle)</div>
+        <div class="row justify-content-center pt-4">
+          <div class="col-2">
+            <h5 class="text-center">Notification Service</h5>
+            <div *ngFor="let setting of notificationSettings['Service'] | keyvalue" class="d-flex justify-content-between mt-1">
+              <span class="h6">{{setting.key}}</span>
+              <button (click)="changeNotification(setting, 'Service')" class="btn btn-dark" placement="bottom">
+                <fa-icon [icon]="setting.value ? faBell : faBellSlash" [class.hidden]="setting.value == false" class="fa toggle-hidden-icon"></fa-icon>
+                {{setting.value ? 'On' : 'Off'}}
+              </button>
+            </div>
+          </div>
+          <div class="col-7">
+            <h5 class="text-center">Service Settings</h5>
+            <div *ngFor="let setting of notificationSettings['Accounts'] | keyvalue" class="d-flex mt-1 justify-content-center">
+              <span class="h6 w-25">{{setting.key}}</span>
+              <input [(ngModel)]="setting.value" clas="w-75" style="width: 75%;" type="text" [value]="setting.value" (change)="changeAccountSetting(setting, 'Accounts', setting.value)"/>
+            </div>
+          </div>
+        </div>
+        <div class="row pt-4">
+        <span class="col-2 border border-right border-dark p-2">
+          <h5 class="text-center">Summary</h5>
+          <div *ngFor="let setting of notificationSettings['Summary'] | keyvalue" class="d-flex justify-content-between mt-1">
+            <span class="h6">{{setting.key}}</span>
+            <button (click)="changeNotification(setting, 'Summary')" class="btn btn-dark" placement="bottom">
+              <fa-icon [icon]="setting.value ? faBell : faBellSlash" [class.hidden]="setting.value == false" class="fa toggle-hidden-icon"></fa-icon>
+              {{setting.value ? 'On' : 'Off'}}
+            </button>
+          </div>
+        </span>
+        <span class="col-2 border border-right border-dark p-2">
+          <h5 class="text-center">Plotters</h5>
+          <div *ngFor="let setting of notificationSettings['Plotters'] | keyvalue" class="d-flex justify-content-between mt-1">
+            <span class="h6">{{setting.key}}</span>
+            <button (click)="changeNotification(setting, 'Plotters')" class="btn btn-dark" placement="bottom">
+              <fa-icon [icon]="setting.value ? faBell : faBellSlash" [class.hidden]="setting.value == false" class="fa toggle-hidden-icon"></fa-icon>
+              {{setting.value ? 'On' : 'Off'}}
+            </button>
+          </div>
+        </span>
+        <span class="col-2 border border-right border-dark p-2">
+        <h5 class="text-center">Harvesters</h5>
+        <div *ngFor="let setting of notificationSettings['Harvesters'] | keyvalue" class="d-flex justify-content-between mt-1">
+          <span class="h6">{{setting.key}}</span>
+          <button (click)="changeNotification(setting, 'Harvesters')" class="btn btn-dark" placement="bottom">
+            <fa-icon [icon]="setting.value ? faBell : faBellSlash" [class.hidden]="setting.value == false" class="fa toggle-hidden-icon"></fa-icon>
+            {{setting.value ? 'On' : 'Off'}}
+          </button>
+        </div>
+      </span>
+      <span class="col-2 border border-right border-dark p-2">
+        <h5 class="text-center">Farmers</h5>
+        <div *ngFor="let setting of notificationSettings['Farmers'] | keyvalue" class="d-flex justify-content-between mt-1">
+          <span class="h6">{{setting.key}}</span>
+          <button (click)="changeNotification(setting, 'Farmers')" class="btn btn-dark" placement="bottom">
+            <fa-icon [icon]="setting.value ? faBell : faBellSlash" [class.hidden]="setting.value == false" class="fa toggle-hidden-icon"></fa-icon>
+            {{setting.value ? 'On' : 'Off'}}
+          </button>
+        </div>
+      </span>
+      <span class="col-2 border border-right border-dark p-2">
+        <h5 class="text-center">Full Nodes</h5>
+        <div *ngFor="let setting of notificationSettings['Full Nodes'] | keyvalue" class="d-flex justify-content-between mt-1">
+          <span class="h6">{{setting.key}}</span>
+          <button (click)="changeNotification(setting, 'Full Nodes')" class="btn btn-dark" placement="bottom">
+            <fa-icon [icon]="setting.value ? faBell : faBellSlash" [class.hidden]="setting.value == false" class="fa toggle-hidden-icon"></fa-icon>
+            {{setting.value ? 'On' : 'Off'}}
+          </button>
+        </div>
+      </span>
+      <span class="col-2 border border-right border-dark p-2">
+        <h5 class="text-center">Wallets</h5>
+        <div *ngFor="let setting of notificationSettings['Wallets'] | keyvalue" class="d-flex justify-content-between mt-1">
+          <span class="h6">{{setting.key}}</span>
+          <button (click)="changeNotification(setting, 'Wallets')" class="btn btn-dark" placement="bottom">
+            <fa-icon [icon]="setting.value ? faBell : faBellSlash" [class.hidden]="setting.value == false" class="fa toggle-hidden-icon"></fa-icon>
+            {{setting.value ? 'On' : 'Off'}}
+          </button>
+        </div>
+        </span>
+      </div>
+        <div class="d-flex justify-content-center mt-3">
+          <button type="button" class="btn btn-outline-primary w-25 mr-1" (click)="defaultNotifications()">Default</button>
+          <button type="button" class="btn btn-outline-primary w-25 ml-1" (click)="saveNotifications()">Save</button>
+        </div>
+        </div>
+    </div>
+</div>

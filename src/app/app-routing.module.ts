@@ -12,6 +12,7 @@ import {AccountShareDashboardComponent} from './account-share-dashboard/account-
 import {SharedDashboardComponent} from './shared-dashboard/shared-dashboard.component';
 import { HarvestersComponent } from './harvesters/harvesters.component';
 import { AccountDashboardSettingsComponent } from './account-dashboard-settings/account-dashboard-settings.component';
+import { AccountNotificationSettingsComponent } from './account-notification-settings/account-notification-settings.component';
 import { DownloadsComponent } from './downloads/downloads.component';
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'farmers/summary', component: FarmersComponent, pathMatch: 'full', data: { titleSuffix: 'Farmers Summary' } },
   { path: 'hpool', component: HPoolDashboardComponent, pathMatch: 'full', data: { titleSuffix: 'HPool' } },
   { path: 'account/dashboardsettings', component: AccountDashboardSettingsComponent, pathMatch: 'full', data: { titleSuffix: 'Dashboard Settings' } },
+  { path: 'account/notificationSettings', component: AccountNotificationSettingsComponent, pathMatch: 'full', data: { titleSuffix: 'Notification Settings' } },
   { path: 'account/sharedashboard', component: AccountShareDashboardComponent, pathMatch: 'full', data: { titleSuffix: 'Share Dashboard' } },
   { path: 'shared/:shareKey', component: SharedDashboardComponent, pathMatch: 'full' },
   { path: 'oauth', loadChildren: () => import('./oauth/oauth.module').then(m => m.OAuthModule) },

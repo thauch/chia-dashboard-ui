@@ -1,11 +1,11 @@
-import {Component, Inject, Input, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {StateService} from '../state.service';
 import {ApiService} from '../api.service';
 import {ToastService} from '../toast.service';
 import {WINDOW} from '../window.provider';
 import {Router} from '@angular/router';
 import { SortablejsModule } from 'ngx-sortablejs';
-import { faTrash, faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash, faEye } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-account-dashboard-settings',
@@ -23,6 +23,7 @@ export class AccountDashboardSettingsComponent implements OnInit {
     "Full Nodes": true,
     "Wallets": true
   };
+
   public faEye = faEye;
   public faEyeSlash = faEyeSlash;
 
@@ -92,7 +93,7 @@ export class AccountDashboardSettingsComponent implements OnInit {
   async saveOrder() {
     const satelliteOrder = this.satelliteOrder;
     await this.apiService.updateUser({ data: { satelliteOrder } });
-    this.toastService.showSuccessToast(`Dashboard Order is Updated`);
+    this.toastService.showSuccessToast(`Dashboard Order is Saved`);
     await this.stateService.updateUser();
   }
 
@@ -106,7 +107,7 @@ export class AccountDashboardSettingsComponent implements OnInit {
   async saveVisibility() {
     const visibleGroups = this.visibleGroups;
     await this.apiService.updateUser({ data: { visibleGroups } });
-    this.toastService.showSuccessToast(`Dashboard Visibility is Updated`);
+    this.toastService.showSuccessToast(`Dashboard Visibility is Saved`);
     await this.stateService.updateUser();
   }
 }

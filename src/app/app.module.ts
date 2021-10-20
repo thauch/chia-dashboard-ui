@@ -56,6 +56,7 @@ import { WalletSummaryChaingreenComponent } from './wallet-summary-chaingreen/wa
 import { WalletSummarySpareComponent } from './wallet-summary-spare/wallet-summary-spare.component';
 import { WalletSummarySilicoinComponent } from './wallet-summary-silicoin/wallet-summary-silicoin.component';
 import { DownloadsComponent } from './downloads/downloads.component';
+import { AccountNotificationSettingsComponent } from './account-notification-settings/account-notification-settings.component';
 
 @NgModule({
   declarations: [
@@ -97,7 +98,8 @@ import { DownloadsComponent } from './downloads/downloads.component';
     WalletSummaryChaingreenComponent,
     WalletSummarySpareComponent,
     WalletSummarySilicoinComponent,
-    DownloadsComponent
+    DownloadsComponent,
+    AccountNotificationSettingsComponent
   ],
   imports: [
     BrowserModule,

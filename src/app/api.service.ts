@@ -144,6 +144,15 @@ export class ApiService {
     return this.request({ method: 'patch', url: 'me', data });
   }
 
+  // async createNotifcationSatellite({ id, data}) {
+  //   console.log(data);
+  //   return this.request({ method: 'post', url: 'nsatellite', data: { id, data } });
+  // }
+
+  // async deleteNotifcationSatellite(id) {
+  //   return this.request({ method: 'delete', url: `nsatellite/${id}` });
+  // }
+
   async getSharedSatellites() {
     return this.request({ url: 'shared/satellites' });
   }

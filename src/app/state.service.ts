@@ -353,6 +353,7 @@ export class StateService {
           satelliteUpdatedAt: satellite.updatedAt,
           collapsedState: satellite.collapsed,
           satelliteCoin: satellite.coin,
+          notificationState: satellite.notifications
         });
       }
       return statsCollection;
