@@ -106,7 +106,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "cname": "us.chiadashboard.com",
+            "cname": "chiadashboard.com",
             "name": "Travis Hauch",
             "email": "travishauch@gmail.com"
           }
